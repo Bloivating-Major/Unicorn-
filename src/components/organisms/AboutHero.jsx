@@ -5,7 +5,7 @@ const AboutHero = () => {
     <section className="container mx-auto bg-background-dark text-white px-6 py-20 md:px-20 lg:px-32 flex flex-col md:flex-row items-center justify-between rounded-2xl shadow-xl">
       <div className="max-w-xl space-y-5">
         <h1 className="text-4xl md:text-5xl font-bold">Unlock Your Potential</h1>
-        <p className="text-lg">
+        <p className="text-lg text-gray-300">
           Join our Chess Academy to enhance your skills and become a master strategist in this game.
         </p>
         <div className="flex gap-4 mt-6">
