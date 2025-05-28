@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import NavLink from "../atoms/NavLink";
 import Button from "../atoms/Button";
 import MenuGroup from "../molecules/MenuGroup";
@@ -6,99 +6,96 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { FaChessKnight } from "react-icons/fa";
 import { menuData } from "../../lib/constants/menuData";
 
-
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-const toggleMenu = () => {
-    setShowMenu((prev) => !prev);
-  };
+  // Close all menus on link click
+  const closeAllMenus = useCallback(() => {
+    setShowMenu(false);
+    setMobileNavOpen(false);
+  }, []);
 
+  const toggleMenu = () => setShowMenu(prev => !prev);
   const toggleMobileNav = () => {
-    // Close the main menu if it's open when toggling mobile nav
-    if (showMenu) {
-      setShowMenu(false);
-    }
-    setMobileNavOpen(!mobileNavOpen);
+    setShowMenu(false); // Always close dropdown when opening mobile
+    setMobileNavOpen(prev => !prev);
   };
 
   return (
     <>
-      <nav className="bg-background-dark text-white p-4 font-poppins ">
-        <div className="container mx-auto flex justify-between items-center px-3">
-          {/* Logo and mobile menu button */}
-          <div className="flex items-center  max-sm:justify-between max-sm:w-full">
-            <NavLink href="/" onNavigate={()=> setShowMenu(false)} className="mr-4">Logo</NavLink>
-            
-            {/* Mobile menu button (hidden on desktop) */}
-            <button 
+      <nav className="bg-background-dark text-white font-poppins shadow-md z-50 relative">
+        <div className="container mx-auto flex justify-between items-center px-4 py-4 lg:px-8">
+          
+          {/* Logo + Mobile Toggle */}
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <NavLink href="/" onNavigate={closeAllMenus} className="text-lg font-semibold">
+              Logo
+            </NavLink>
+
+            <button
+              aria-label="Toggle Menu"
               className="md:hidden text-white focus:outline-none"
               onClick={toggleMobileNav}
             >
-              {mobileNavOpen ? (
-                <BiX size={32} />
-              ) : (
-                <BiMenu size={32} />
-              )}
+              {mobileNavOpen ? <BiX size={30} /> : <BiMenu size={30} />}
             </button>
-
-             {/* Desktop navigation (hidden on mobile) */}
-          <div className="hidden md:flex space-x-4">
-            <NavLink onNavigate={()=> setShowMenu(false)} href="/about">About Us</NavLink>
-            <NavLink onNavigate={()=> setShowMenu(false)} href="/gallery">Gallery</NavLink>
-            <NavLink onNavigate={()=> setShowMenu(false)} href="/contact">Contact Us</NavLink>
-            <NavLink onNavigate={()=> setShowMenu(false)} href="/carrer">Carrers</NavLink>
-          </div>
           </div>
 
-         
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-6">
+            <NavLink onNavigate={closeAllMenus} href="/about">About Us</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/gallery">Gallery</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/contact">Contact Us</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/career">Careers</NavLink>
+          </div>
 
-          {/* Contact button (hidden on mobile) */}
-          <div className="flex space-x-4 max-sm:hidden">
+          {/* Desktop Button */}
+          <div className="hidden md:flex items-center">
             <Button variant="primary" size="large" onClick={toggleMenu}>
               Join Us
             </Button>
           </div>
         </div>
 
-        {/* Mobile navigation (shown when mobileNavOpen is true) */}
+        {/* Mobile Menu */}
         {mobileNavOpen && (
-          <div className="md:hidden mt-4 space-y-3 flex flex-col py-3 navbar">
-            <NavLink onNavigate={()=> setMobileNavOpen(false)}  href="/about" block>About Us</NavLink>
-            <NavLink onNavigate={()=> setMobileNavOpen(false)}  href="/gallery" block>Gallery</NavLink>
-            <NavLink onNavigate={()=> setMobileNavOpen(false)}  href="/contact" block>Contact Us</NavLink>
-             <Button  variant="primary" size="large" onClick={toggleMenu} className=" max-sm:rounded-xl">
+          <div className="md:hidden flex flex-col bg-background-dark px-4 py-4 space-y-3 z-40">
+            <NavLink onNavigate={closeAllMenus} href="/about" block>About Us</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/gallery" block>Gallery</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/contact" block>Contact Us</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/career" block>Careers</NavLink>
+            <Button variant="primary" size="large" onClick={toggleMenu} className="rounded-xl">
               Join Us
             </Button>
           </div>
         )}
       </nav>
 
-      {/* Dropdown menu (same for both mobile and desktop) */}
+      {/* Dropdown Menu (Join Us) */}
       {showMenu && (
-        <div className="bg-background-dark text-white pt-8 relative z-30"  >
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 ">
+        <div className="bg-background-dark text-white pt-8 z-40 relative">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 px-4 lg:px-8">
             {menuData.map((group, index) => (
               <MenuGroup key={index} title={group.title} items={group.items} />
             ))}
           </div>
-          <div className="w-full bg-background-dull mt-8 py-4">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center ">
-              <p className="mb-4 md:mb-0">
-                Ready to join us? 
-                <NavLink>
-                  <span className="border-b ml-2">Sign up for free</span>
+          <div className="w-full bg-background-dull mt-6 py-4">
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 px-4 lg:px-8">
+              <p className="text-sm">
+                Ready to join us?
+                <NavLink onNavigate={closeAllMenus}>
+                  <span className="ml-2 border-b border-gray-400">Sign up for free</span>
                 </NavLink>
               </p>
-              <div className="flex gap-4 max-sm:flex-col">
+              <div className="flex gap-4">
                 <div className="flex items-center gap-2">
                   <FaChessKnight />
-                  <NavLink className="text-black font-medium">Join</NavLink>
+                  <NavLink className="text-black font-medium" onNavigate={closeAllMenus}>Join</NavLink>
                 </div>
                 <div className="flex items-center gap-2">
                   <FaChessKnight />
-                  <NavLink className="text-black font-medium">Login</NavLink>
+                  <NavLink className="text-black font-medium" onNavigate={closeAllMenus}>Login</NavLink>
                 </div>
               </div>
             </div>
