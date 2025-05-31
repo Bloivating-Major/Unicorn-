@@ -14,13 +14,11 @@ const MissionIntro = () => {
       </div>
 
       {/* Image */}
-      <div className="w-full md:w-1/2">
-        <img
-          src="/images/mission-intro-placeholder.png"
-          alt="Academy Vision"
-          className="rounded-lg shadow-lg w-full"
-        />
-      </div>
+        <div className="md:w-1/2 p-4 py-8 flex items-center justify-center">
+          <div className="md:w-[600px]  md:h-[600px] rounded-md overflow-hidden  ">
+            <img src="/src/assets/images/bobby600x640.webp" alt="Bobby Fischer" className="rounded-md" />
+            </div> {/* Placeholder for image */}
+        </div>
     </section>
   );
 };
