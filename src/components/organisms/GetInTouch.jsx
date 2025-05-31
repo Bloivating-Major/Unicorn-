@@ -42,7 +42,7 @@ const GetInTouchForm = () => {
   };
 
   return (
-    <section className="bg-background-dark text-white px-4 py-12">
+    <section className="container mx-auto bg-background-dark text-white px-4 py-12">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
         <form
