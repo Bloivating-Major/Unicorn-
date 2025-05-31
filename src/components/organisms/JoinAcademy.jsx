@@ -1,3 +1,4 @@
+import Button from "../atoms/Button";
 
 const JoinAcademyCTA = () => {
   return (
@@ -9,26 +10,30 @@ const JoinAcademyCTA = () => {
             Unlock Your Potential: <br />
             Join Our Chess Academy Community Today!
           </h2>
-          <p className="text-gray-400 mt-4">
-            As a part of our vibrant academy, you&apos;ll gain access to expert coaching,
-            exclusive tournaments, and a strong support system. Start your journey
-            toward chess mastery today.
+          <p className="text-gray-300 mt-4">
+            As a part of our vibrant academy, you&apos;ll gain access to expert
+            coaching, exclusive tournaments, and a strong support system. Start
+            your journey toward chess mastery today.
           </p>
 
           <div className="mt-6 flex gap-4">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-medium px-6 py-2 rounded-full shadow-md transition">
+            <Button variant="primary" size="large">
               Join Now
-            </button>
-            <button className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white px-6 py-2 rounded-full transition">
+            </Button>
+            <Button variant="secondary" size="large">
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
-
         {/* Image Section */}
-        <div className="w-full h-[300px] bg-gray-800 rounded-xl flex items-center justify-center">
-          <span className="text-gray-400">Image Here</span>
-        </div>
+        <div className=" rounded-md overflow-hidden  ">
+          <img
+            src="/src/assets/images/aboutUsPage.webp"
+            alt="Bobby Fischer"
+            className="rounded-md"
+          />
+        </div>{" "}
+        {/* Placeholder for image */}
       </div>
     </section>
   );
