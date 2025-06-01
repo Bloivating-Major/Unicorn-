@@ -10,7 +10,7 @@ import CTASection from '../organisms/CTASection'
 
 const AboutPageTemplate = () => {
   return (
-    <main className=" bg-background-dark text-white min-h-screen px-6 py-12 font-poppins">
+    <main className=" bg-background-dark text-white min-h-screen font-poppins">
         <AboutHero />
         <MissionIntro />
         <ProgramsOverview />
