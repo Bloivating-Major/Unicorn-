@@ -1,43 +1,12 @@
 import React, { useState } from "react";
-
-const pricingPlans = [
-  {
-    name: "Basic Plan",
-    price: "$19/mo",
-    features: [
-      "Access to beginner classes",
-      "Weekly practice sessions",
-      "Online resources included",
-    ],
-  },
-  {
-    name: "Business Plan",
-    price: "$29/mo",
-    features: [
-      "All Basic features",
-      "Monthly tournaments access",
-      "Personal coaching sessions",
-      "Exclusive member events",
-    ],
-  },
-  {
-    name: "Enterprise Plan",
-    price: "$49/mo",
-    features: [
-      "All Business features",
-      "Advanced strategy workshops",
-      "Priority support access",
-      "Custom training plans",
-      "Monthly analysis reports",
-    ],
-  },
-];
+import { pricingPlans } from "../../lib/constants/pricingPlans";
+import Button from "../atoms/Button";
 
 const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState("Monthly");
 
   return (
-    <section className="bg-background-dark text-white py-16 px-4">
+    <section className="container mx-auto bg-background-dark text-white py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-sm text-neutral-400 mb-2">Affordable</p>
         <h2 className="text-3xl font-semibold mb-2">Pricing Plans</h2>
@@ -70,11 +39,11 @@ const PricingPlans = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 ">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className="bg-background-light border border-neutral-800 rounded-xl p-6 flex flex-col justify-between shadow-md"
+              className="bg-background-dull border border-neutral-800 rounded-xl p-6 flex flex-col justify-between shadow-md"
             >
               <div>
                 <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
@@ -87,9 +56,9 @@ const PricingPlans = () => {
                   ))}
                 </ul>
               </div>
-              <button className="mt-auto bg-primary-light text-black font-medium px-4 py-2 rounded-md hover:bg-primary">
+              <Button variant="primary" size="large">
                 Get started
-              </button>
+              </Button>
             </div>
           ))}
         </div>
