@@ -1,22 +1,39 @@
 import React from "react";
+import Button from "../atoms/Button";
 
 const OpportunitiesSection = () => {
   return (
-    <section className="bg-[#0f0f0f] text-white px-4 py-16 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-            Unlock Your Potential: Opportunities for Passionate Chess Coaches and Trainers
-          </h2>
-          <p className="text-gray-400 text-base leading-relaxed">
-            Join our vibrant community of chess educators and elevate your coaching skills.
-            We offer a range of opportunities, from workshops to tournaments, designed to
-            enhance your skills and connect you with aspiring players.
+    <section className="container mx-auto bg-background-dark md:h-[824px]  text-white py-16 max-sm:px-6">
+      <div className="container mx-auto flex flex-col md:flex-row">
+        <div className="md:w-1/2 md:p-4 py-4 md:my-auto">
+          <h1 className="md:text-4xl md:w-4/5 mb-4 text-3xl max-sm:font-medium">
+            Unlock Your Potential Opportunities for Passionate Chess Coaches
+            and Trainers
+          </h1>
+          <p className="mb-6 md:w-3/4 text-lg">
+            Join our vibrant community of chess educators and elevate your
+            coaching career. We offer a range of opportunities, from workshops
+            to competitive events, designed to enhance your skills and connect
+            you with aspiring players.
           </p>
+          <div className="flex gap-4">
+            <Button variant="primary" size="large">
+              Join
+            </Button>
+            <Button variant="secondary" size="large">
+              Learn More
+            </Button>
+          </div>
         </div>
-        <div className="w-full h-72 md:h-96 bg-gray-300 rounded-lg flex items-center justify-center">
+        <div className="md:w-1/2 p-4 py-8 flex items-center justify-center">
+          <div className="md:w-[600px]  md:h-[600px] rounded-md overflow-hidden  ">
+            <img
+              src="/src/assets/images/bobby600x640.webp"
+              alt="Bobby Fischer"
+              className="rounded-md"
+            />
+          </div>{" "}
           {/* Placeholder for image */}
-          <span className="text-gray-500 text-5xl">🖼️</span>
         </div>
       </div>
     </section>
