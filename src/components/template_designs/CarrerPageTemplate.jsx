@@ -8,7 +8,7 @@ import CTASection from '../organisms/CTASection'
 
 const CarrerPageTemplate = () => {
   return (
-    <main className="bg-background-dark text-white min-h-screen px-6 py-12 font-poppins">
+    <main className="bg-background-dark text-white min-h-screen py-12 font-poppins">
         <JoinSection />
         <OpportunitiesSection />
         <EmpowerSection />
