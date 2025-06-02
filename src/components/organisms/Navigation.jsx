@@ -2,13 +2,15 @@ import React, { useState, useCallback } from "react";
 import NavLink from "../atoms/NavLink";
 import Button from "../atoms/Button";
 import MenuGroup from "../molecules/MenuGroup";
-import { BiMenu, BiX } from "react-icons/bi";
+import { BiMenu, BiX, BiChevronDown } from "react-icons/bi";
 import { FaChessKnight } from "react-icons/fa";
 import { menuData } from "../../lib/constants/menuData";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Close all menus on link click
   const closeAllMenus = useCallback(() => {
@@ -16,20 +18,27 @@ const Navigation = () => {
     setMobileNavOpen(false);
   }, []);
 
-  const toggleMenu = () => setShowMenu(prev => !prev);
   const toggleMobileNav = () => {
     setShowMenu(false); // Always close dropdown when opening mobile
-    setMobileNavOpen(prev => !prev);
+    setMobileNavOpen((prev) => !prev);
+  };
+
+  const goToContact = () => {
+    closeAllMenus();
+    navigate("/contact");
   };
 
   return (
     <>
       <nav className="bg-background-dark text-white font-poppins shadow-md z-50 relative">
         <div className="container mx-auto flex justify-between items-center px-4 py-4 lg:px-8">
-          
           {/* Logo + Mobile Toggle */}
           <div className="flex items-center justify-between w-full md:w-auto">
-            <NavLink href="/" onNavigate={closeAllMenus} className="text-lg font-semibold">
+            <NavLink
+              href="/"
+              onNavigate={closeAllMenus}
+              className="text-lg font-semibold"
+            >
               Logo
             </NavLink>
 
@@ -44,15 +53,31 @@ const Navigation = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-6">
-            <NavLink onNavigate={closeAllMenus} href="/about">About Us</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/gallery">Gallery</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/contact">Contact Us</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/career">Careers</NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/about">
+              About Us
+            </NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/gallery">
+              Gallery
+            </NavLink>
+            <div
+              className="flex items-center space-x-1 cursor-pointer"
+              onClick={() => setShowMenu((prev) => !prev)}
+            >
+              Services
+              <BiChevronDown
+                className={`transform transition-transform ${
+                  showMenu ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+            <NavLink onNavigate={closeAllMenus} href="/career">
+              Careers
+            </NavLink>
           </div>
 
           {/* Desktop Button */}
           <div className="hidden md:flex items-center">
-            <Button variant="primary" size="large" onClick={toggleMenu}>
+            <Button variant="primary" size="large" onClick={goToContact}>
               Join Us
             </Button>
           </div>
@@ -61,11 +86,33 @@ const Navigation = () => {
         {/* Mobile Menu */}
         {mobileNavOpen && (
           <div className="md:hidden flex flex-col bg-background-dark px-4 py-4 space-y-3 z-40">
-            <NavLink onNavigate={closeAllMenus} href="/about" block>About Us</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/gallery" block>Gallery</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/contact" block>Contact Us</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/career" block>Careers</NavLink>
-            <Button variant="primary" size="large" onClick={toggleMenu} className="rounded-xl">
+            <NavLink onNavigate={closeAllMenus} href="/about" block>
+              About Us
+            </NavLink>
+            <NavLink onNavigate={closeAllMenus} href="/gallery" block>
+              Gallery
+            </NavLink>
+            <div
+              className="flex items-center justify-between text-white cursor-pointer"
+              onClick={() => setShowMenu((prev) => !prev)}
+            >
+              <span>Services</span>
+              <BiChevronDown
+                className={`transition-transform ${
+                  showMenu ? "rotate-180" : "rotate-0"
+                }`}
+                size={30}
+              />
+            </div>
+            <NavLink onNavigate={closeAllMenus} href="/career" block>
+              Careers
+            </NavLink>
+            <Button
+              variant="primary"
+              size="large"
+              onClick={goToContact}
+              className="rounded-xl"
+            >
               Join Us
             </Button>
           </div>
@@ -85,17 +132,29 @@ const Navigation = () => {
               <p className="text-sm">
                 Ready to join us?
                 <NavLink onNavigate={closeAllMenus}>
-                  <span className="ml-2 border-b border-gray-400">Sign up for free</span>
+                  <span className="ml-2 border-b border-gray-400">
+                    Sign up for free
+                  </span>
                 </NavLink>
               </p>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2">
                   <FaChessKnight />
-                  <NavLink className="text-black font-medium" onNavigate={closeAllMenus}>Join</NavLink>
+                  <NavLink
+                    className="text-black font-medium"
+                    onNavigate={closeAllMenus}
+                  >
+                    Join
+                  </NavLink>
                 </div>
                 <div className="flex items-center gap-2">
                   <FaChessKnight />
-                  <NavLink className="text-black font-medium" onNavigate={closeAllMenus}>Login</NavLink>
+                  <NavLink
+                    className="text-black font-medium"
+                    onNavigate={closeAllMenus}
+                  >
+                    Login
+                  </NavLink>
                 </div>
               </div>
             </div>
