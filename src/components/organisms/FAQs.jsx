@@ -11,9 +11,9 @@ const FAQs = () => {
   };
 
   return (
-    <section className="container mx-auto bg-background-dark text-white py-16 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center">Frequently Asked Questions</h2>
+    <section className="section-wrapper max-sm:px-5">
+      <div >
+        <h2 className="heading-text text-center py-4">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqData.map((faq, index) => (
             <div
@@ -24,7 +24,7 @@ const FAQs = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex justify-between items-center text-left"
               >
-                <span className="text-lg font-medium">{faq.question}</span>
+                <span className="sub-heading-text">{faq.question}</span>
                 <FaChevronDown
                   className={`transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
@@ -32,7 +32,7 @@ const FAQs = () => {
                 />
               </button>
               {openIndex === index && (
-                <p className="mt-3 text-gray-300">{faq.answer}</p>
+                <p className="body-text mt-2">{faq.answer}</p>
               )}
             </div>
           ))}
