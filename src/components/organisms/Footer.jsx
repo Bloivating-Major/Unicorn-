@@ -3,8 +3,8 @@ import NavLink from "../atoms/NavLink";
 
 const Footer = () => {
   return (
-    <footer className="bg-background-dark text-white py-8 font-poppins">
-      <div className="container mx-auto py-5">
+    <footer className="section-wrapper">
+      <div className="">
         <div className="flex justify-center py-5">
           <NavLink className="text-center">Logo</NavLink>
         </div>
