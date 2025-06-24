@@ -26,7 +26,7 @@ const HeroSection = () => {
     <div className="md:w-1/2 px-4 py-10 flex items-center justify-center">
       <div className="w-full md:w-[600px] max-w-full rounded-md overflow-hidden">
         <img
-          src="/src/assets/bobby600x640.webp"
+          src="/src/assets/images/bobby600x640.webp"
           alt="Bobby Fischer"
           className="rounded-md w-full h-auto object-cover"
         />
