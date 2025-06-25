@@ -6,11 +6,11 @@ const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState("Monthly");
 
   return (
-    <section className="container mx-auto bg-background-dark text-white py-16 px-4">
-      <div className="max-w-6xl mx-auto text-center">
-        <p className="text-sm text-neutral-400 mb-2">Affordable</p>
-        <h2 className="text-3xl font-semibold mb-2">Pricing Plans</h2>
-        <p className="text-neutral-400 mb-6">
+    <section className="section-wrapper max-sm:px-5">
+      <div className="text-center">
+        <p className="body-text mb-2">Affordable</p>
+        <h2 className="heading-text mb-2">Pricing Plans</h2>
+        <p className="body-text mb-2">
           Choose a plan that suits your chess journey.
         </p>
 
