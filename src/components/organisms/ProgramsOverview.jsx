@@ -23,10 +23,10 @@ const programs = [
 
 const ProgramsOverview = () => {
   return (
-    <section className="container mx-auto bg-background-dark text-white px-6 py-20 md:px-20 lg:px-32">
+    <section className="section-wrapper max-sm:px-5">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">Unlock Your Potential</h2>
-        <p className="text-gray-300 text-lg">
+        <h2 className="heading-text">Unlock Your Potential</h2>
+        <p className="sub-heading-text">
           With Our Comprehensive Chess Coaching Programs
         </p>
       </div>
@@ -35,8 +35,8 @@ const ProgramsOverview = () => {
         {programs.map((item, index) => (
           <div key={index} className="bg-[#1f1f1f] p-6 rounded-xl shadow-md hover:shadow-xl transition">
             {item.icon}
-            <h3 className="text-xl font-semibold mt-4">{item.title}</h3>
-            <p className="text-gray-300 mt-2">{item.description}</p>
+            <h3 className="sub-heading-text mt-4">{item.title}</h3>
+            <p className="body-text mt-2">{item.description}</p>
             <button className="mt-4 text-yellow-300 hover:text-purple-100 transition flex items-center gap-1">
               {item.cta} <ArrowRight />
             </button>
