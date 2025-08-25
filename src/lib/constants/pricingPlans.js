@@ -1,28 +1,31 @@
 export const pricingPlans = [
   {
-    name: "Basic Plan",
-    price: "$19/mo",
+    name: "Beginners Program",
+    price: "₹6000/mo",
     features: [
-      "Access to beginner classes",
-      "Weekly practice sessions",
-      "Online resources included",
+      "2 Live Classes per week",
+      "Recorded sessions access",
+      "Assignment provided with feedback",
+      "Access to Platform resources",
+      "Free Camps to level up your game",
+      "Certificate of completion",
     ],
   },
   {
-    name: "Business Plan",
-    price: "$29/mo",
+    name: "Intermediate Program",
+    price: "₹8000/mo",
     features: [
-      "All Basic features",
+      "All Beginners Program features",
       "Monthly tournaments access",
       "Personal coaching sessions",
       "Exclusive member events",
     ],
   },
   {
-    name: "Enterprise Plan",
-    price: "$49/mo",
+    name: "Advanced Program",
+    price: "₹12000/mo",
     features: [
-      "All Business features",
+      "All Intermediate Program features",
       "Advanced strategy workshops",
       "Priority support access",
       "Custom training plans",

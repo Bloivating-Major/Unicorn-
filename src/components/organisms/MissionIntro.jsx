@@ -4,12 +4,10 @@ const MissionIntro = () => {
       {/* Text Content */}
       <div className="w-full md:w-1/2 space-y-6">
         <h2 className="heading-text">
-          Founded in 2023, our academy is dedicated to nurturing chess talent.
+          Founded in 2012, our academy is dedicated to nurturing chess talent.
         </h2>
         <p className="body-text">
-          Our Chess Academy was established to provide an exceptional curriculum
-          for students worldwide. We focus on personalized instruction, community engagement,
-          and nurturing passion for the long-term.
+          Ms. Savita Shrivastava and Mr. Ravi Shrivastava, a passionate wife-husband duo, took the first step toward a vision they shared for the future of chess in their community. 
         </p>
       </div>
 
