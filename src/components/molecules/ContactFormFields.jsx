@@ -4,6 +4,7 @@ const ContactFormFields = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    reason: "",
     message: "",
     terms: false,
   });
@@ -31,6 +32,7 @@ const ContactFormFields = () => {
     setFormData({
       name: "",
       email: "",
+      reason: "",
       message: "",
       terms: false,
     });
@@ -64,6 +66,23 @@ const ContactFormFields = () => {
           value={formData.email}
           required
         />
+      </div>
+
+      <div>
+        <label className="block text-sm mb-1">Reason for Contact</label>
+        <select
+          name="reason"
+          className="w-full p-3 rounded-md bg-background-dull text-white"
+          onChange={handleChange}
+          value={formData.reason}
+          required
+        >
+          <option value="">Select a reason</option>
+          <option value="General Query">General Query</option>
+          <option value="Support">Support</option>
+          <option value="Join Academy">Join Academy</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
 
       <div>

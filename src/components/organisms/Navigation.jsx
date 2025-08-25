@@ -39,7 +39,7 @@ const Navigation = () => {
               onNavigate={closeAllMenus}
               className="text-lg font-semibold"
             >
-              Logo
+              <img src="/src/assets/images/logoUnicorn.png" alt="Logo" className="h-8 w-auto mr-2" />
             </NavLink>
 
             <button
@@ -70,9 +70,6 @@ const Navigation = () => {
                 }`}
               />
             </div>
-            <NavLink onNavigate={closeAllMenus} href="/career">
-              Careers
-            </NavLink>
           </div>
 
           {/* Desktop Button */}
@@ -104,9 +101,6 @@ const Navigation = () => {
                 size={30}
               />
             </div>
-            <NavLink onNavigate={closeAllMenus} href="/career" block>
-              Careers
-            </NavLink>
             <Button
               variant="primary"
               size="large"
