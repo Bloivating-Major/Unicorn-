@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Queen } from "../../assets/images";
+import { rook } from "../../assets/images";
+import { Knight } from "../../assets/images";
+import { pawn } from "../../assets/images";
 
 const pieces = [
-  { src: "/src/assets/images/Queen.svg", delay: 0 },
-  { src: "/src/assets/images/rook.svg", delay: 0.3 },
-  { src: "/src/assets/images/Knight.svg", delay: 0.6 },
-  { src: "/src/assets/images/pawn.svg", delay: 0.9 },
+  { src: Queen, delay: 0 },
+  { src: rook, delay: 0.3 },
+  { src: Knight, delay: 0.6 },
+  { src: pawn, delay: 0.9 },
 ];
 
 const FloatingChessPieces = () => {

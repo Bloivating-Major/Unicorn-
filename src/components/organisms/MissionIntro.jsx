@@ -1,3 +1,5 @@
+import { aboutHero } from "../../assets/images";
+
 const MissionIntro = () => {
   return (
     <section className="section-wrapper flex flex-col-reverse md:flex-row items-center gap-10 max-sm:px-5">
@@ -15,7 +17,7 @@ const MissionIntro = () => {
       <div className="md:w-1/2 flex items-center justify-center">
         <div className="w-full md:w-[600px] max-w-full rounded-md overflow-hidden">
           <img
-            src="/src/assets/images/bobby600x640.webp"
+            src={aboutHero}
             alt="Bobby Fischer"
             className="rounded-md w-full h-auto object-cover"
           />

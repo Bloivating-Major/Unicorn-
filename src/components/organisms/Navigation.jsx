@@ -6,6 +6,7 @@ import { BiMenu, BiX, BiChevronDown } from "react-icons/bi";
 import { FaChessKnight } from "react-icons/fa";
 import { menuData } from "../../lib/constants/menuData";
 import { useNavigate } from "react-router-dom";
+import { UnicornLogo } from "../../assets/images";
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -39,7 +40,7 @@ const Navigation = () => {
               onNavigate={closeAllMenus}
               className="text-lg font-semibold"
             >
-              <img src="/src/assets/images/logoUnicorn.png" alt="Logo" className="h-8 w-auto mr-2" />
+              <img src={UnicornLogo} alt="Logo" className="h-16 w-auto mr-2" />
             </NavLink>
 
             <button

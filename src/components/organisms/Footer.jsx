@@ -1,12 +1,14 @@
-import React from "react";
 import NavLink from "../atoms/NavLink";
+import { UnicornLogo } from "../../assets/images";
 
 const Footer = () => {
   return (
     <footer className="section-wrapper">
       <div className="">
         <div className="flex justify-center py-5">
-          <NavLink className="text-center">Logo</NavLink>
+          <NavLink className="text-center">
+            <img src={UnicornLogo} alt="Logo" className="h-20 w-auto" />
+          </NavLink>
         </div>
         <div className="flex justify-center md:gap-16 gap-4 mb-4 max-sm:flex-col max-sm:text-center font-medium">
           <NavLink href="#">Join Us</NavLink>
