@@ -1,4 +1,3 @@
-// components/molecules/TestimonialSlider.jsx
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -17,23 +16,15 @@ const TestimonialSlider = () => {
     <>
       <Swiper
         slidesPerView={1}
-        spaceBetween={24}
+        spaceBetween={20}
         breakpoints={{
-          768: { slidesPerView: 2 },
+          640:  { slidesPerView: 1 },
+          768:  { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        pagination={{
-          el: ".custom-pagination",
-          clickable: true,
-        }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
+        pagination={{ el: ".custom-pagination", clickable: true }}
+        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         onSwiper={(swiper) => {
           setTimeout(() => {
             swiper.params.navigation.prevEl = prevRef.current;
@@ -44,10 +35,11 @@ const TestimonialSlider = () => {
           });
         }}
         modules={[Navigation, Pagination, Autoplay]}
+        className="!pb-2"
       >
-        {testimonials.map((testimonial, idx) => (
-          <SwiperSlide key={idx}>
-            <TestimonialCard testimonial={testimonial} />
+        {testimonials.map((t, idx) => (
+          <SwiperSlide key={idx} className="h-auto">
+            <TestimonialCard testimonial={t} />
           </SwiperSlide>
         ))}
       </Swiper>

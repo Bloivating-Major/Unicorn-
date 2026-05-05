@@ -1,39 +1,60 @@
-import React from "react";
 import { Linkedin, Github, Twitter } from "lucide-react";
 import { teamMembers } from "../../lib/constants/teamMembers";
 
+const TeamCard = ({ name, role, description }) => {
+  const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2);
 
-const TeamCard = ({ name, role, description }) => (
-  <div className="bg-background-dull/60 rounded-xl p-5 text-white space-y-2">
-    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-sm font-bold text-white">
-      {name.split(" ").map((n) => n[0]).join("")}
+  return (
+    <div className="group premium-card p-6 space-y-4">
+      {/* Avatar */}
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center font-playfair text-base font-bold text-gold-light flex-shrink-0">
+          {initials}
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-ivory">{name}</h4>
+          <p className="text-xs text-gold">{role}</p>
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="text-sm text-ivory-dim leading-7">{description}</p>
+
+      {/* Social icons */}
+      <div className="flex gap-3 pt-1">
+        {[Linkedin, Github, Twitter].map((Icon, i) => (
+          <button
+            key={i}
+            className="w-7 h-7 rounded-lg bg-dark-3 border border-gold/10 flex items-center justify-center text-ivory-dim hover:text-gold hover:border-gold/30 transition-all duration-200"
+          >
+            <Icon size={13} />
+          </button>
+        ))}
+      </div>
     </div>
-    <h4 className="text-lg font-medium">{name}</h4>
-    <p className="text-sm text-yellow-400">{role}</p>
-    <p className="text-sm ">{description}</p>
-    <div className="flex gap-3 mt-2 text-gray-400">
-      <Linkedin size={16} className="cursor-pointer hover:text-white text-yellow-400" />
-      <Github size={16} className="cursor-pointer hover:text-white text-yellow-400" />
-      <Twitter size={16} className="cursor-pointer hover:text-white text-yellow-400" />
-    </div>
-  </div>
-);
+  );
+};
 
 const TeamSection = () => {
   return (
-    <section className="bg-background-dark mx-auto container text-white px-5 py-16 md:px-8">
+    <section className="bg-obsidian section-wrapper">
       <div className="space-y-10">
-        <div>
-          <p className="uppercase text-sm text-gray-400 font-medium mb-2">Together</p>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">Our Team</h2>
-          <p className="text-gray-400 text-base max-w-2xl">
-            Meet our dedicated coaches and trainers.
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow-text block mb-3">Our Team</span>
+          <h2 className="heading-text mb-4">
+            Meet our{" "}
+            <em className="italic text-gold-light">dedicated coaches</em>
+          </h2>
+          <p className="body-text">
+            Passionate educators and chess experts committed to helping you grow.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {teamMembers.map((member, index) => (
-            <TeamCard key={index} {...member} />
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {teamMembers.map((member, i) => (
+            <TeamCard key={i} {...member} />
           ))}
         </div>
       </div>

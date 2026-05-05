@@ -3,65 +3,107 @@ import { pricingPlans } from "../../lib/constants/pricingPlans";
 import Button from "../atoms/Button";
 
 const PricingPlans = () => {
-  const [billingCycle, setBillingCycle] = useState("Monthly");
+  const [billing, setBilling] = useState("Monthly");
 
   return (
-    <section className="section-wrapper max-sm:px-5">
-      <div className="text-center">
-        <p className="body-text mb-2">Affordable</p>
-        <h2 className="heading-text mb-2">Pricing Plans</h2>
-        <p className="body-text mb-2">
-          Choose a plan that suits your chess journey.
+    <section className="bg-obsidian section-wrapper">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <span className="eyebrow-text block mb-3">Pricing</span>
+        <h2 className="heading-text mb-4">
+          Invest in{" "}
+          <em className="italic text-gold-light">greatness</em>
+        </h2>
+        <p className="body-text max-w-md mx-auto">
+          Transparent pricing. No hidden fees. Cancel anytime.
         </p>
 
         {/* Billing toggle */}
-        <div className="inline-flex items-center bg-background-dull rounded-full p-1 mb-10">
-          <button
-            onClick={() => setBillingCycle("Monthly")}
-            className={`px-4 py-1 rounded-full transition-all ${
-              billingCycle === "Monthly"
-                ? "bg-white text-black"
-                : "text-white"
-            }`}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setBillingCycle("Yearly")}
-            className={`px-4 py-1 rounded-full transition-all ${
-              billingCycle === "Yearly"
-                ? "bg-white text-black"
-                : "text-white"
-            }`}
-          >
-            Yearly
-          </button>
-        </div>
-
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 ">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={index}
-              className="bg-background-dull border border-neutral-800 rounded-xl p-6 flex flex-col justify-between shadow-md"
+        <div className="inline-flex items-center bg-dark-3 border border-gold/15 rounded-full p-1 mt-6">
+          {["Monthly", "Yearly"].map((cycle) => (
+            <button
+              key={cycle}
+              onClick={() => setBilling(cycle)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200
+                ${billing === cycle
+                  ? "bg-gold text-obsidian shadow-gold-sm"
+                  : "text-ivory-dim hover:text-ivory"
+                }`}
             >
-              <div>
-                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-                <p className="text-2xl font-bold mb-4">{plan.price}</p>
-                <ul className="text-left space-y-2 mb-6 text-neutral-300">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span> {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Button variant="primary" size="large">
-                Get started
-              </Button>
-            </div>
+              {cycle}
+              {cycle === "Yearly" && (
+                <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">
+                  −15%
+                </span>
+              )}
+            </button>
           ))}
         </div>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pricingPlans.map((plan, index) => {
+          const isFeatured = index === 1;
+          const price = billing === "Yearly"
+            ? `₹${Math.round(parseInt(plan.price.replace(/[^0-9]/g, "")) * 0.85 / 1000) * 1000}`
+            : plan.price.replace("/mo", "");
+
+          return (
+            <div
+              key={index}
+              className={`relative flex flex-col rounded-2xl p-7 border transition-all duration-300 hover:-translate-y-1
+                ${isFeatured
+                  ? "bg-gradient-to-b from-gold/12 to-gold/4 border-gold/40 shadow-gold-md"
+                  : "bg-dark-2 border-gold/10 hover:border-gold/25"
+                }`}
+            >
+              {/* Most popular badge */}
+              {isFeatured && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="bg-gold text-obsidian text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-gold-sm">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+
+              {/* Plan name */}
+              <p className="eyebrow-text mb-3">{plan.name}</p>
+
+              {/* Price */}
+              <div className="mb-1">
+                <span className="font-playfair text-4xl font-bold text-ivory leading-none">
+                  {price}
+                </span>
+              </div>
+              <p className="text-xs text-ivory-dim mb-6">
+                per month{billing === "Yearly" ? " · billed annually" : ""}
+              </p>
+
+              {/* Divider */}
+              <div className="h-px bg-gold/10 mb-6" />
+
+              {/* Features */}
+              <ul className="space-y-3 flex-1 mb-8">
+                {plan.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-ivory-dim">
+                    <span className="text-gold font-bold text-xs mt-0.5 flex-shrink-0">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <Button
+                variant={isFeatured ? "primary" : "secondary"}
+                size="large"
+                className="w-full justify-center"
+              >
+                Get Started
+              </Button>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

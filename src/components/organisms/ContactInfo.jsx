@@ -3,12 +3,12 @@ import ContactDetails from "./ContactDetails";
 
 const ContactInfo = () => {
   return (
-    <main className="bg-background-dark text-white max-sm:px-2 px-6 py-16">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12">
+    <section className="bg-obsidian section-wrapper">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <ContactDetails />
         <ContactMap />
       </div>
-    </main>
+    </section>
   );
 };
 

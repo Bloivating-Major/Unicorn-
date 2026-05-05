@@ -1,39 +1,50 @@
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 import { faqData } from "../../lib/constants/faqs";
 
-
 const FAQs = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="section-wrapper max-sm:px-5">
-      <div >
-        <h2 className="heading-text text-center py-4">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          {faqData.map((faq, index) => (
+    <section className="bg-obsidian section-wrapper">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="eyebrow-text block mb-3">FAQs</span>
+          <h2 className="heading-text">Frequently asked questions</h2>
+        </div>
+
+        <div className="space-y-3">
+          {faqData.map((faq, i) => (
             <div
-              key={index}
-              className="border border-background-dull rounded-md p-4 bg-[#1f1f1f]"
+              key={i}
+              className={`rounded-xl border transition-all duration-300 overflow-hidden
+                ${openIndex === i
+                  ? "border-gold/30 bg-dark-2"
+                  : "border-gold/10 bg-dark-2 hover:border-gold/20"
+                }`}
             >
               <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center text-left"
+                onClick={() => toggle(i)}
+                className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
               >
-                <span className="sub-heading-text">{faq.question}</span>
-                <FaChevronDown
-                  className={`transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
+                <span className="font-playfair text-base sm:text-lg font-semibold text-ivory">
+                  {faq.question}
+                </span>
+                <span
+                  className={`w-7 h-7 flex-shrink-0 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center text-gold text-xl font-light transition-transform duration-300
+                    ${openIndex === i ? "rotate-45" : ""}`}
+                >
+                  +
+                </span>
               </button>
-              {openIndex === index && (
-                <p className="body-text mt-2">{faq.answer}</p>
-              )}
+
+              <div
+                className={`px-6 overflow-hidden transition-all duration-300
+                  ${openIndex === i ? "max-h-64 pb-5" : "max-h-0"}`}
+              >
+                <p className="body-text text-sm leading-7">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>

@@ -1,61 +1,63 @@
-import React from "react";
-import { Brain, Users, GraduationCap } from "lucide-react"; // Icons
+import { Brain, Users, GraduationCap } from "lucide-react";
 import Button from "../atoms/Button";
+
+const benefits = [
+  {
+    icon: Brain,
+    title: "Professional Growth Through Chess",
+    desc: "Enhance your strategic thinking and problem-solving abilities that extend far beyond the board.",
+  },
+  {
+    icon: Users,
+    title: "A Supportive Community",
+    desc: "Connect with fellow players, mentors, and enthusiasts who share your passion for the game.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Mentorship from Expert Coaches",
+    desc: "Receive guidance from experienced coaches who genuinely care about your growth and success.",
+  },
+];
 
 const EmpowerSection = () => {
   return (
-    <section className="container mx-auto bg-background-dark text-white px-6 py-16 md:px-8 ">
-      <div className="space-y-10">
-        {/* Section Heading */}
-        <div>
-          <p className="uppercase text-sm text-gray-400 font-medium mb-2">Empower</p>
-          <h2 className="text-4xl md:text-5xl mb-4 w-[90%]">
-            Unlock Your Potential with <br className="hidden md:block" /> Chess Mastery
-          </h2>
-          <p className="text-gray-400 text-base max-w-2xl">
-            Join our academy to experience unparalleled growth in your chess skills. Our
-            dedicated coaches provide personalized mentorship in a nurturing environment.
+    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <span className="eyebrow-text block mb-3">Empower</span>
+            <h2 className="heading-text">
+              Unlock your potential with{" "}
+              <em className="italic text-gold-light">Chess Mastery</em>
+            </h2>
+          </div>
+          <p className="body-text max-w-sm text-sm lg:text-right">
+            Join our academy to experience unparalleled growth in chess — and in life.
           </p>
         </div>
 
-        {/* Benefit Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-          <div className="bg-[#1a1a1a] rounded-xl p-5">
-            <Brain className="text-yellow-400 mb-3" />
-            <h3 className="font-semibold text-white mb-2 text-2xl">
-              Experience Professional Growth Through Chess
-            </h3>
-            <p className="text-gray-400">
-              Enhance your strategic thinking and problem-solving abilities.
-            </p>
-          </div>
-
-          <div className="bg-[#1a1a1a] rounded-xl p-5">
-            <Users className="text-yellow-400 mb-3" />
-            <h3 className="font-semibold text-white mb-2 text-2xl">
-              Join a Supportive Community of Chess Enthusiasts
-            </h3>
-            <p className="text-gray-400">
-              Connect with fellow players and refine your passion.
-            </p>
-          </div>
-
-          <div className="bg-[#1a1a1a] rounded-xl p-5">
-            <GraduationCap className="text-yellow-400 mb-3" />
-            <h3 className="font-semibold text-white mb-2 text-2xl">
-              Mentorship from Experienced Chess Coaches
-            </h3>
-            <p className="text-gray-400">
-              Receive guidance from experts who care about your success.
-            </p>
-          </div>
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return (
+              <div key={i} className="group premium-card p-7 space-y-4">
+                <div className="w-11 h-11 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold/15 transition-all duration-200">
+                  <Icon size={20} />
+                </div>
+                <h3 className="font-playfair text-xl font-semibold text-ivory leading-snug">
+                  {b.title}
+                </h3>
+                <p className="body-text text-sm leading-7">{b.desc}</p>
+              </div>
+            );
+          })}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <div>
-          <Button variant="primary" size="large">
-            Join Our Academy
-          </Button>
+          <Button variant="primary" size="large">Join Our Academy</Button>
         </div>
       </div>
     </section>

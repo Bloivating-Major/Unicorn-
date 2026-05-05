@@ -4,28 +4,25 @@ const NavLink = ({
   href = "#",
   children,
   className = "",
-  onNavigate, // Pass a function to close the menu from parent
+  onNavigate,
   ...props
 }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
-
-    // Close the mobile menu (triggered from parent via prop)
     if (onNavigate) onNavigate();
-
-    // Delay navigation slightly to let animation finish
-    setTimeout(() => {
-      navigate(href);
-    }, 100); // Adjust delay based on your animation timing
+    setTimeout(() => navigate(href), 100);
   };
 
   return (
     <a
       href={href}
       onClick={handleClick}
-      className={`hover:text-gray-300 ${className}`}
+      className={`relative text-ivory-dim hover:text-ivory transition-colors duration-200 
+        after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px 
+        after:bg-gold after:transition-all after:duration-300 hover:after:w-full 
+        ${className}`}
       {...props}
     >
       {children}

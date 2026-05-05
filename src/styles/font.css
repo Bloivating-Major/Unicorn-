@@ -1,3 +1,17 @@
+/*
+  fonts.css
+  ─────────────────────────────────────────────────────
+  We load Playfair Display + DM Sans via Google Fonts in
+  index.html for best performance.
+
+  The local Poppins woff2 files in /assets/fonts/poppins
+  are kept as a fallback, but DM Sans is now the primary
+  body font. The tailwind `font-poppins` class maps to
+  DM Sans via tailwind.config.js so all existing
+  className="font-poppins" references keep working.
+*/
+
+/* ── LOCAL FALLBACK (Poppins) ── */
 @font-face {
   font-family: 'Poppins';
   src: url('/src/assets/fonts/poppins/Poppins-Medium.woff2') format('woff2');
@@ -21,4 +35,3 @@
   font-style: normal;
   font-display: swap;
 }
-

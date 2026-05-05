@@ -1,26 +1,27 @@
-// components/molecules/TestimonialControls.jsx
 import React from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const TestimonialControls = ({ prevRef, nextRef }) => {
   return (
     <div className="mt-8 flex justify-between items-center">
-      {/* Dots (Pagination) - Left */}
-      <div className="custom-pagination flex space-x-2"></div>
+      {/* Pagination dots */}
+      <div className="custom-pagination flex gap-2" />
 
-      {/* Arrows (Navigation) - Right */}
+      {/* Arrow buttons */}
       <div className="flex gap-3">
         <button
           ref={prevRef}
-          className="bg-[#444] text-white w-10 h-10 rounded-md hover:bg-[#666] transition flex justify-center items-center"
+          aria-label="Previous"
+          className="w-10 h-10 rounded-lg bg-dark-3 border border-gold/15 text-ivory-dim hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center"
         >
-          <FaArrowLeft />
+          <FaArrowLeft size={14} />
         </button>
         <button
           ref={nextRef}
-          className="bg-[#444] text-white w-10 h-10 rounded-md hover:bg-[#666] transition flex justify-center items-center"
+          aria-label="Next"
+          className="w-10 h-10 rounded-lg bg-dark-3 border border-gold/15 text-ivory-dim hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center"
         >
-          <FaArrowRight />
+          <FaArrowRight size={14} />
         </button>
       </div>
     </div>

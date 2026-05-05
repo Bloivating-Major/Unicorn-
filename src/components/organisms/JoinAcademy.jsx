@@ -1,39 +1,44 @@
 import Button from "../atoms/Button";
+import { aboutUsPage } from "../../assets/images";
 
 const JoinAcademyCTA = () => {
   return (
-    <section className="section-wrapper max-sm:px-5">
-      <div className="grid md:grid-cols-2 items-center gap-12">
-        {/* Text Section */}
-        <div className="flex flex-col gap-3">
+    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+      <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
+
+        {/* Text */}
+        <div className="flex flex-col gap-5 order-2 lg:order-1 text-center lg:text-left">
+          <span className="eyebrow-text">Join Us</span>
           <h2 className="heading-text">
-            Unlock Your Potential: <br />
-            Join Our Chess Academy Community Today!
+            Unlock your potential —{" "}
+            <em className="italic text-gold-light">
+              join our Chess Academy
+            </em>{" "}
+            community today
           </h2>
           <p className="body-text">
-            As a part of our vibrant academy, you&apos;ll gain access to expert
-            coaching, exclusive tournaments, and a strong support system. Start
-            your journey toward chess mastery today.
+            As part of our vibrant academy, you'll gain access to expert coaching,
+            exclusive tournaments, and a strong support system. Start your journey
+            toward chess mastery today.
           </p>
 
-          <div className="flex gap-4">
-            <Button variant="primary" size="medium">
-              Join Now
-            </Button>
-            <Button variant="secondary" size="medium">
-              Learn More
-            </Button>
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-2">
+            <Button variant="primary" size="large">Join Now</Button>
+            <Button variant="secondary" size="large">Learn More</Button>
           </div>
         </div>
-        {/* Image Section */}
-        <div className=" rounded-md overflow-hidden  ">
-          <img
-            src="/src/assets/images/aboutUsPage.webp"
-            alt="Bobby Fischer"
-            className="rounded-md"
-          />
-        </div>{" "}
-        {/* Placeholder for image */}
+
+        {/* Image */}
+        <div className="order-1 lg:order-2">
+          <div className="relative rounded-2xl overflow-hidden border border-gold/15 shadow-gold-md">
+            <img
+              src={aboutUsPage}
+              alt="Students at Unicorn Chess Academy"
+              className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-transparent to-transparent" />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,18 +1,27 @@
-import { section } from "framer-motion/client";
-
 const GalleryHero = () => {
   return (
-    <section className="section-wrapper">
-    <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-8">
-      <h1 className="text-4xl md:text-5xl ">
-        Our Chess Gallery
-      </h1>
-      <p className="max-w-xl text-gray-300 text-base md:text-lg leading-relaxed">
-        Explore the moments captured at our Chess Academy, from intense
-        matches to joyful victories. Each image tells a story of dedication,
-        skill, and the vibrant community we foster.
-      </p>
-    </div>
+    <section className="relative bg-obsidian overflow-hidden">
+      <div className="absolute inset-0 board-pattern pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(201,168,76,0.07),transparent_70%)] pointer-events-none" />
+
+      <div className="section-wrapper relative z-10 pt-20 pb-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+          <div className="max-w-xl">
+            <span className="eyebrow-text block mb-4 animate-fade-up">Gallery</span>
+            <h1 className="heading-text animate-fade-up delay-100">
+              Our Chess{" "}
+              <em className="italic text-gold-light">Gallery</em>
+            </h1>
+          </div>
+          <p className="max-w-md body-text leading-8 animate-fade-up delay-200">
+            Explore moments captured at our Chess Academy — from intense matches
+            to joyful victories. Each image tells a story of dedication, skill, and
+            the vibrant community we foster.
+          </p>
+        </div>
+      </div>
+
+      <div className="gold-divider" />
     </section>
   );
 };

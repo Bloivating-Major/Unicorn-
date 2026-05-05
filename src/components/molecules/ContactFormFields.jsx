@@ -2,65 +2,59 @@ import { useState } from "react";
 
 const ContactFormFields = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    reason: "",
-    message: "",
-    terms: false,
+    name: "", email: "", reason: "", message: "", terms: false,
   });
-
   const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
-
-    if (name === "terms" && checked) {
-      setError(""); // clear error if terms checked
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+    if (name === "terms" && checked) setError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!formData.terms) {
-      setError("You must agree to the terms before submitting.");
+      setError("Please agree to the terms before submitting.");
       return;
     }
-
     setError("");
-    setFormData({
-      name: "",
-      email: "",
-      reason: "",
-      message: "",
-      terms: false,
-    });
-    console.log("Form Submitted", formData);
-    // Submit logic here
+    setSubmitted(true);
+    setFormData({ name: "", email: "", reason: "", message: "", terms: false });
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Name */}
       <div>
-        <label className="block text-sm mb-1">Name</label>
+        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+          Name
+        </label>
         <input
           type="text"
           name="name"
-          className="w-full p-3 rounded-md bg-background-dull text-white placeholder-gray-400"
-          placeholder="Your name"
+          className="premium-input"
+          placeholder="Your full name"
           onChange={handleChange}
           value={formData.name}
           required
         />
       </div>
 
+      {/* Email */}
       <div>
-        <label className="block text-sm mb-1">Email</label>
+        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+          Email
+        </label>
         <input
           type="email"
           name="email"
-          className="w-full p-3 rounded-md bg-background-dull text-white placeholder-gray-400"
+          className="premium-input"
           placeholder="you@example.com"
           onChange={handleChange}
           value={formData.email}
@@ -68,11 +62,14 @@ const ContactFormFields = () => {
         />
       </div>
 
+      {/* Reason */}
       <div>
-        <label className="block text-sm mb-1">Reason for Contact</label>
+        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+          Reason for Contact
+        </label>
         <select
           name="reason"
-          className="w-full p-3 rounded-md bg-background-dull text-white"
+          className="premium-input appearance-none cursor-pointer"
           onChange={handleChange}
           value={formData.reason}
           required
@@ -85,39 +82,50 @@ const ContactFormFields = () => {
         </select>
       </div>
 
+      {/* Message */}
       <div>
-        <label className="block text-sm mb-1">Message</label>
+        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+          Message
+        </label>
         <textarea
           name="message"
           rows="4"
-          className="w-full p-3 rounded-md bg-background-dull text-white placeholder-gray-400"
-          placeholder="Type your message..."
+          className="premium-input resize-none"
+          placeholder="Tell us how we can help…"
           onChange={handleChange}
           value={formData.message}
           required
-        ></textarea>
+        />
       </div>
 
-      <div className="flex items-start space-x-2">
+      {/* Terms */}
+      <div className="flex items-start gap-3">
         <input
           type="checkbox"
           name="terms"
-          className="mt-1"
+          id="terms"
+          className="mt-1 w-4 h-4 accent-gold cursor-pointer"
           onChange={handleChange}
           checked={formData.terms}
         />
-        <label className="text-sm">
-          I agree to the <span className="underline">Terms</span>
+        <label htmlFor="terms" className="text-sm text-ivory-dim cursor-pointer leading-6">
+          I agree to the{" "}
+          <span className="text-gold underline underline-offset-2 cursor-pointer">
+            Terms & Conditions
+          </span>
         </label>
       </div>
 
-      {error && <p className="text-red-500 text-sm -mt-4">{error}</p>}
+      {error && <p className="text-red-400 text-sm">{error}</p>}
 
-      <button
-        type="submit"
-        className="bg-blue-lighter text-black px-6 py-2 rounded-md font-medium shadow-md hover:opacity-90 transition"
-      >
-        Submit
+      {submitted && (
+        <p className="text-green-400 text-sm font-medium">
+          ✓ Message sent! We'll get back to you shortly.
+        </p>
+      )}
+
+      <button type="submit" className="btn-gold w-full sm:w-auto px-8 py-3 text-sm">
+        Send Message →
       </button>
     </form>
   );

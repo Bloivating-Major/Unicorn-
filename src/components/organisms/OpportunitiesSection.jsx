@@ -1,39 +1,35 @@
-import React from "react";
 import Button from "../atoms/Button";
 
 const OpportunitiesSection = () => {
   return (
-    <section className="container mx-auto bg-background-dark md:h-[824px]  text-white py-16 max-sm:px-6">
-      <div className="container mx-auto flex flex-col md:flex-row">
-        <div className="md:w-1/2 md:p-4 py-4 md:my-auto">
-          <h1 className="md:text-4xl md:w-4/5 mb-4 text-3xl max-sm:font-medium">
-            Unlock Your Potential Opportunities for Passionate Chess Coaches
-            and Trainers
-          </h1>
-          <p className="mb-6 md:w-3/4 text-lg">
-            Join our vibrant community of chess educators and elevate your
-            coaching career. We offer a range of opportunities, from workshops
-            to competitive events, designed to enhance your skills and connect
-            you with aspiring players.
+    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+        {/* Text */}
+        <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+          <span className="eyebrow-text block mb-4">Opportunities</span>
+          <h2 className="heading-text mb-5">
+            Unlock opportunities for passionate{" "}
+            <em className="italic text-gold-light">chess coaches</em>{" "}
+            and trainers
+          </h2>
+          <p className="body-text leading-8 max-w-lg mx-auto lg:mx-0 mb-8">
+            Join our vibrant community of chess educators and elevate your coaching
+            career. We offer workshops, competitive events, and a platform designed
+            to help you connect with aspiring players across India.
           </p>
-          <div className="flex gap-4">
-            <Button variant="primary" size="large">
-              Join
-            </Button>
-            <Button variant="secondary" size="large">
-              Learn More
-            </Button>
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <Button variant="primary" size="large">Join as Coach</Button>
+            <Button variant="secondary" size="large">Learn More</Button>
           </div>
         </div>
-        <div className="md:w-1/2 p-4 py-8 flex items-center justify-center">
-          <div className="md:w-[600px]  md:h-[600px] rounded-md overflow-hidden  ">
-            <img
-              src="/src/assets/images/bobby600x640.webp"
-              alt="Bobby Fischer"
-              className="rounded-md"
-            />
-          </div>{" "}
-          {/* Placeholder for image */}
+
+        {/* Image placeholder */}
+        <div className="flex-1 order-1 lg:order-2 w-full">
+          <div className="relative rounded-2xl overflow-hidden border border-gold/15 shadow-gold-md bg-dark-3 h-72 sm:h-80 lg:h-96 flex items-center justify-center">
+            <span className="text-[120px] text-gold/10 font-serif select-none">♞</span>
+            <div className="absolute inset-0 bg-gradient-to-tr from-obsidian/40 to-transparent" />
+          </div>
         </div>
       </div>
     </section>
