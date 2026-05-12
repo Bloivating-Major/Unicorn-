@@ -32,7 +32,7 @@ const ContactFormFields = () => {
     <form onSubmit={handleSubmit} className="space-y-5">
       {/* Name */}
       <div>
-        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+        <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-2">
           Name
         </label>
         <input
@@ -48,7 +48,7 @@ const ContactFormFields = () => {
 
       {/* Email */}
       <div>
-        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+        <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-2">
           Email
         </label>
         <input
@@ -64,7 +64,7 @@ const ContactFormFields = () => {
 
       {/* Reason */}
       <div>
-        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+        <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-2">
           Reason for Contact
         </label>
         <select
@@ -84,7 +84,7 @@ const ContactFormFields = () => {
 
       {/* Message */}
       <div>
-        <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+        <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-2">
           Message
         </label>
         <textarea
@@ -104,22 +104,22 @@ const ContactFormFields = () => {
           type="checkbox"
           name="terms"
           id="terms"
-          className="mt-1 w-4 h-4 accent-gold cursor-pointer"
+          className="mt-1 w-4 h-4 accent-royal cursor-pointer"
           onChange={handleChange}
           checked={formData.terms}
         />
-        <label htmlFor="terms" className="text-sm text-ivory-dim cursor-pointer leading-6">
+        <label htmlFor="terms" className="text-sm text-ink-light cursor-pointer leading-6">
           I agree to the{" "}
-          <span className="text-gold underline underline-offset-2 cursor-pointer">
+          <span className="text-royal underline underline-offset-2 cursor-pointer">
             Terms & Conditions
           </span>
         </label>
       </div>
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {submitted && (
-        <p className="text-green-400 text-sm font-medium">
+        <p className="text-green-600 text-sm font-medium">
           ✓ Message sent! We'll get back to you shortly.
         </p>
       )}

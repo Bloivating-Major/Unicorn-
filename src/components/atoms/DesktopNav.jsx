@@ -27,14 +27,14 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
   return (
     <>
       {/* ── MAIN NAV BAR ── */}
-      <nav className="bg-obsidian/90 backdrop-blur-xl border-b border-gold/10 text-ivory font-poppins sticky top-0 z-50">
+      <nav className="bg-white/90 backdrop-blur-xl border-b border-border-light text-ink font-sans sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4">
 
           {/* Logo + Mobile Toggle */}
           <div className="flex items-center justify-between w-full md:w-auto">
             <NavLink href="/" onNavigate={closeAllMenus} className="after:hidden">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-gold-gradient flex items-center justify-center text-obsidian text-lg font-bold shadow-gold-sm">
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-royal-light to-royal flex items-center justify-center text-white text-lg font-bold shadow-brand-sm">
                   ♞
                 </div>
                 <img src={UnicornLogo} alt="Unicorn Chess Logo" className="h-10 w-auto hidden sm:block" />
@@ -44,7 +44,7 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
             {/* Mobile hamburger */}
             <button
               aria-label="Toggle Menu"
-              className="md:hidden text-ivory p-1 hover:text-gold transition-colors"
+              className="md:hidden text-ink p-1 hover:text-royal transition-colors"
               onClick={toggleMobileNav}
             >
               {mobileNavOpen
@@ -60,7 +60,7 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
 
             {/* Services dropdown trigger */}
             <button
-              className="flex items-center gap-1 text-ivory-dim hover:text-ivory transition-colors text-sm font-medium"
+              className="flex items-center gap-1 text-ink-light hover:text-royal transition-colors text-sm font-medium"
               onClick={() => setShowMenu((prev) => !prev)}
             >
               Services
@@ -82,11 +82,11 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
 
       {/* ── MEGA DROPDOWN ── */}
       {showMenu && (
-        <div className="hidden md:block bg-dark-2 border-b border-gold/10 z-40 relative animate-fade-up">
+        <div className="hidden md:block bg-white border-b border-border-light shadow-card-lg z-40 relative animate-fade-up">
           <div className="container mx-auto grid grid-cols-4 gap-8 px-10 py-8">
             {menuData.map((group, index) => (
               <div key={index}>
-                <h3 className="text-xs font-bold tracking-widest uppercase text-gold mb-4">
+                <h3 className="text-xs font-bold tracking-widest uppercase text-royal mb-4">
                   {group.title}
                 </h3>
                 <ul className="space-y-3">
@@ -97,10 +97,10 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
                         onNavigate={closeAllMenus}
                         className="flex flex-col gap-0.5 after:hidden"
                       >
-                        <span className="text-sm font-medium text-ivory hover:text-gold-light transition-colors">
+                        <span className="text-sm font-medium text-ink hover:text-royal transition-colors">
                           {item.title}
                         </span>
-                        <span className="text-xs text-ivory-dim">{item.description}</span>
+                        <span className="text-xs text-ink-muted">{item.description}</span>
                       </NavLink>
                     </li>
                   ))}
@@ -110,11 +110,11 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
           </div>
 
           {/* Dropdown footer bar */}
-          <div className="border-t border-gold/10 py-4">
+          <div className="border-t border-border-light py-4">
             <div className="container mx-auto flex justify-between items-center px-10">
-              <p className="text-sm text-ivory-dim">
+              <p className="text-sm text-ink-light">
                 Ready to start your chess journey?{" "}
-                <NavLink href="#" onNavigate={closeAllMenus} className="text-gold font-medium after:bg-gold">
+                <NavLink href="#" onNavigate={closeAllMenus} className="text-royal font-medium after:bg-royal">
                   Sign up for free →
                 </NavLink>
               </p>

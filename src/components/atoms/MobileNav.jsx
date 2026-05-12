@@ -22,7 +22,7 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
     <>
       {/* ── MOBILE SLIDE-DOWN MENU ── */}
       {mobileNavOpen && (
-        <div className="md:hidden bg-dark-2 border-b border-gold/10 px-4 py-5 space-y-4 z-40 animate-fade-up">
+        <div className="md:hidden bg-white border-b border-border-light shadow-card-lg px-4 py-5 space-y-4 z-40 animate-fade-up">
           <NavLink onNavigate={closeAllMenus} href="/about" className="block text-base font-medium py-1">
             About Us
           </NavLink>
@@ -33,7 +33,7 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
           {/* Services toggle */}
           <div>
             <button
-              className="flex w-full items-center justify-between text-ivory-dim text-base font-medium py-1"
+              className="flex w-full items-center justify-between text-ink-light text-base font-medium py-1"
               onClick={() => setShowMenu((prev) => !prev)}
             >
               <span>Services</span>
@@ -44,10 +44,10 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
             </button>
 
             {showMenu && (
-              <div className="mt-3 ml-3 space-y-4 border-l border-gold/20 pl-4">
+              <div className="mt-3 ml-3 space-y-4 border-l-2 border-royal/20 pl-4">
                 {menuData.map((group, index) => (
                   <div key={index}>
-                    <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">
+                    <p className="text-xs font-bold tracking-widest uppercase text-royal mb-2">
                       {group.title}
                     </p>
                     <ul className="space-y-2">
@@ -56,7 +56,7 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
                           <NavLink
                             href="#"
                             onNavigate={closeAllMenus}
-                            className="block text-sm text-ivory-dim hover:text-ivory after:hidden"
+                            className="block text-sm text-ink-light hover:text-royal after:hidden"
                           >
                             {item.title}
                           </NavLink>

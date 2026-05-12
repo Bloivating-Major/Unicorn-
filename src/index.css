@@ -3,19 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── GOOGLE FONTS ── */
+/* ── BASE ── */
+body {
+  @apply bg-surface text-ink font-sans antialiased;
+}
 
 /* ── SWIPER ── */
 .custom-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: rgba(201, 168, 76, 0.4);
+  background: rgba(45, 58, 140, 0.25);
   opacity: 1;
   border-radius: 9999px;
   transition: all 0.3s ease;
 }
 .custom-pagination .swiper-pagination-bullet-active {
-  background: #C9A84C;
+  background: #2D3A8C;
   width: 24px;
   border-radius: 4px;
 }
@@ -26,71 +29,70 @@
 }
 
 .heading-text {
-  @apply font-playfair text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-ivory;
+  @apply font-playfair text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-ink;
 }
 
 .sub-heading-text {
-  @apply font-playfair text-xl md:text-2xl font-semibold text-ivory;
+  @apply font-playfair text-xl md:text-2xl font-semibold text-ink;
 }
 
 .body-text {
-  @apply text-ivory-dim leading-relaxed;
+  @apply text-ink-light leading-relaxed;
 }
 
 .eyebrow-text {
-  @apply text-gold text-xs font-semibold tracking-widest uppercase;
+  @apply text-royal text-xs font-semibold tracking-widest uppercase;
 }
 
-/* ── GOLD LINE DIVIDER ── */
+/* ── LIGHT DIVIDER ── */
 .gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
-  opacity: 0.3;
+  background: linear-gradient(90deg, transparent, #D0D0DE, transparent);
 }
 
 /* ── BOARD PATTERN BACKGROUND ── */
 .board-pattern {
-  background-image: repeating-conic-gradient(rgba(201,168,76,0.04) 0% 25%, transparent 0% 50%);
+  background-image: repeating-conic-gradient(rgba(45,58,140,0.03) 0% 25%, transparent 0% 50%);
   background-size: 40px 40px;
 }
 
 /* ── CARD STYLES ── */
 .premium-card {
-  @apply bg-dark-2 border border-gold/10 rounded-2xl transition-all duration-300;
+  @apply bg-white border border-border-light rounded-2xl shadow-card transition-all duration-300;
 }
 .premium-card:hover {
-  @apply border-gold/30 -translate-y-1;
+  @apply border-royal/20 shadow-card-lg -translate-y-1;
 }
 
 /* ── BUTTON BASE ── */
 .btn-gold {
-  @apply bg-gradient-to-r from-gold-light to-gold text-obsidian font-semibold rounded-xl 
+  @apply bg-gradient-to-r from-royal-light to-royal text-white font-semibold rounded-xl
          px-6 py-3 text-sm tracking-wide uppercase transition-all duration-200
-         shadow-[0_8px_24px_rgba(201,168,76,0.25)] hover:shadow-[0_12px_32px_rgba(201,168,76,0.35)]
+         shadow-brand-md hover:shadow-brand-lg
          hover:-translate-y-0.5 active:scale-95;
 }
 
 .btn-ghost {
-  @apply bg-transparent border border-gold/30 text-ivory font-medium rounded-xl
+  @apply bg-transparent border border-royal/25 text-royal font-medium rounded-xl
          px-6 py-3 text-sm tracking-wide transition-all duration-200
-         hover:border-gold hover:text-gold-light active:scale-95;
+         hover:border-royal hover:bg-royal-50 active:scale-95;
 }
 
 /* ── FORM INPUTS ── */
 .premium-input {
-  @apply w-full px-4 py-3 rounded-xl bg-dark-3 border border-gold/15 text-ivory 
-         placeholder-ivory-dim/50 text-sm transition-all duration-200
-         focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/20;
+  @apply w-full px-4 py-3 rounded-xl bg-surface-alt border border-border-light text-ink
+         placeholder-ink-muted text-sm transition-all duration-200
+         focus:outline-none focus:border-royal/50 focus:ring-2 focus:ring-royal/10;
 }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0A0A0B; }
-::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.5); }
+::-webkit-scrollbar-track { background: #F7F8FA; }
+::-webkit-scrollbar-thumb { background: rgba(45,58,140,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(45,58,140,0.35); }
 
 /* ── SELECTION ── */
-::selection { background: rgba(201,168,76,0.25); color: #F0EAD6; }
+::selection { background: rgba(45,58,140,0.15); color: #1A1A2E; }
 
 /* ── SMOOTH SCROLL ── */
 html { scroll-behavior: smooth; }
@@ -118,6 +120,6 @@ html { scroll-behavior: smooth; }
 
 /* ── GLOW PULSE ── */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.1); }
-  50%       { box-shadow: 0 0 40px rgba(201,168,76,0.25); }
+  0%, 100% { box-shadow: 0 0 20px rgba(45,58,140,0.06); }
+  50%       { box-shadow: 0 0 40px rgba(45,58,140,0.12); }
 }

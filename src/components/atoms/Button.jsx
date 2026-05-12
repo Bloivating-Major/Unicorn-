@@ -8,17 +8,17 @@ const Button = ({
   ...props
 }) => {
   const base =
-    "inline-flex items-center justify-center font-semibold rounded-xl tracking-wide uppercase transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/50";
+    "inline-flex items-center justify-center font-semibold rounded-xl tracking-wide uppercase transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal/40";
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-gold-light to-gold text-obsidian shadow-gold-md hover:shadow-gold-lg hover:-translate-y-0.5",
+      "bg-gradient-to-r from-royal-light to-royal text-white shadow-brand-md hover:shadow-brand-lg hover:-translate-y-0.5",
     secondary:
-      "bg-transparent border border-gold/30 text-ivory hover:border-gold hover:text-gold-light",
+      "bg-transparent border border-royal/25 text-royal hover:border-royal hover:bg-royal-50",
     white:
-      "bg-ivory text-obsidian hover:bg-ivory/90",
+      "bg-white text-ink shadow-card hover:shadow-card-lg",
     ghost:
-      "bg-transparent text-ivory hover:text-gold-light",
+      "bg-transparent text-ink-light hover:text-royal",
   };
 
   const sizes = {

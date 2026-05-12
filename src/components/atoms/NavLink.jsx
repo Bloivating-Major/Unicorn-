@@ -19,9 +19,9 @@ const NavLink = ({
     <a
       href={href}
       onClick={handleClick}
-      className={`relative text-ivory-dim hover:text-ivory transition-colors duration-200 
+      className={`relative text-ink-light hover:text-royal transition-colors duration-200 
         after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px 
-        after:bg-gold after:transition-all after:duration-300 hover:after:w-full 
+        after:bg-royal after:transition-all after:duration-300 hover:after:w-full 
         ${className}`}
       {...props}
     >
