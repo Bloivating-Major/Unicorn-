@@ -43,17 +43,16 @@ const MainMenu = () => {
   ];
 
   return (
-    <div className="bg-gray-900 text-white py-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div className="bg-white border-b border-border-light shadow-card-lg py-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-10">
         {menuData.map((group, index) => (
           <MenuGroup key={index} title={group.title} items={group.items} />
         ))}
       </div>
-      <div className="container mx-auto mt-8 flex justify-between items-center border-t border-gray-700 pt-4">
-        <p>Ready to join us?</p>
+      <div className="container mx-auto mt-8 flex justify-between items-center border-t border-border-light pt-4 px-4 sm:px-6 lg:px-10">
+        <p className="text-sm text-ink-light">Ready to join us?</p>
         <div className="flex gap-4">
           <Button variant="primary" size="small">Sign up for free</Button>
-          <Button variant="secondary" size="small">Join</Button>
           <Button variant="secondary" size="small">Login</Button>
         </div>
       </div>

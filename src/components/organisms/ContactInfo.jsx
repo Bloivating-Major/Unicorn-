@@ -3,7 +3,7 @@ import ContactDetails from "./ContactDetails";
 
 const ContactInfo = () => {
   return (
-    <section className="bg-obsidian section-wrapper">
+    <section className="bg-white section-wrapper">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <ContactDetails />
         <ContactMap />

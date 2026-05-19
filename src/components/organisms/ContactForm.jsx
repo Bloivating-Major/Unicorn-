@@ -3,7 +3,7 @@ import ContactMap from "../molecules/ContactMap";
 
 const ContactForm = () => {
   return (
-    <section className="bg-dark-2 border-t border-gold/10 section-wrapper">
+    <section className="bg-surface-alt border-t border-border-light section-wrapper">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
         {/* Form side */}
         <div>

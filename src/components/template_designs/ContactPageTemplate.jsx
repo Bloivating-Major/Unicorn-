@@ -4,7 +4,7 @@ import CTASection    from "../organisms/CTASection";
 
 const ContactPageTemplate = () => {
   return (
-    <main className="bg-obsidian font-poppins">
+    <main className="bg-white font-sans">
       <ContactInfo />
       <ContactForm />
       <CTASection />

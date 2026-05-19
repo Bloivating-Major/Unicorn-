@@ -6,7 +6,12 @@ import { UnicornLogo } from "../../assets/images";
 import { menuData } from "../../lib/constants/menuData";
 import { useNavigate } from "react-router-dom";
 
-const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) => {
+const DesktopNav = ({
+  showMenu,
+  setShowMenu,
+  mobileNavOpen,
+  setMobileNavOpen,
+}) => {
   const navigate = useNavigate();
 
   const closeAllMenus = () => {
@@ -24,6 +29,11 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
     navigate("/contact");
   };
 
+  const goToLogin = () => {
+    closeAllMenus();
+    window.location.href = "https://app.meetchess.com";
+  };
+
   return (
     <>
       {/* ── MAIN NAV BAR ── */}
@@ -32,12 +42,20 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
 
           {/* Logo + Mobile Toggle */}
           <div className="flex items-center justify-between w-full md:w-auto">
-            <NavLink href="/" onNavigate={closeAllMenus} className="after:hidden">
+
+            <NavLink
+              href="/"
+              onNavigate={closeAllMenus}
+              className="after:hidden"
+            >
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-royal-light to-royal flex items-center justify-center text-white text-lg font-bold shadow-brand-sm">
-                  ♞
+                <div>
+                  <img
+                    src={UnicornLogo}
+                    alt="Unicorn Chess Logo"
+                    className="w-14 h-14 rounded-lg bg-gradient-to-br from-royal-light to-royal flex items-center justify-center text-white text-lg font-bold shadow-brand-sm"
+                  />
                 </div>
-                <img src={UnicornLogo} alt="Unicorn Chess Logo" className="h-10 w-auto hidden sm:block" />
               </div>
             </NavLink>
 
@@ -47,33 +65,63 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
               className="md:hidden text-ink p-1 hover:text-royal transition-colors"
               onClick={toggleMobileNav}
             >
-              {mobileNavOpen
-                ? <BiX size={28} />
-                : <BiMenu size={28} />}
+              {mobileNavOpen ? (
+                <BiX size={28} />
+              ) : (
+                <BiMenu size={28} />
+              )}
             </button>
           </div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <NavLink onNavigate={closeAllMenus} href="/about">About Us</NavLink>
-            <NavLink onNavigate={closeAllMenus} href="/gallery">Gallery</NavLink>
+
+            <NavLink
+              onNavigate={closeAllMenus}
+              href="/about"
+            >
+              About Us
+            </NavLink>
+
+            <NavLink
+              onNavigate={closeAllMenus}
+              href="/gallery"
+            >
+              Gallery
+            </NavLink>
+
+            <NavLink
+              onNavigate={closeAllMenus}
+              href="/tournaments"
+            >
+              Tournaments
+            </NavLink>
 
             {/* Services dropdown trigger */}
             <button
               className="flex items-center gap-1 text-ink-light hover:text-royal transition-colors text-sm font-medium"
-              onClick={() => setShowMenu((prev) => !prev)}
+              onClick={() =>
+                setShowMenu((prev) => !prev)
+              }
             >
               Services
+
               <BiChevronDown
                 size={18}
-                className={`transition-transform duration-200 ${showMenu ? "rotate-180" : ""}`}
+                className={`transition-transform duration-200 ${
+                  showMenu ? "rotate-180" : ""
+                }`}
               />
             </button>
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex">
-            <Button variant="primary" size="medium" onClick={goToContact}>
+            <Button
+              variant="primary"
+              size="medium"
+              onClick={goToContact}
+            >
               Join Us →
             </Button>
           </div>
@@ -83,48 +131,67 @@ const DesktopNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) 
       {/* ── MEGA DROPDOWN ── */}
       {showMenu && (
         <div className="hidden md:block bg-white border-b border-border-light shadow-card-lg z-40 relative animate-fade-up">
+
           <div className="container mx-auto grid grid-cols-4 gap-8 px-10 py-8">
+
             {menuData.map((group, index) => (
               <div key={index}>
+
                 <h3 className="text-xs font-bold tracking-widest uppercase text-royal mb-4">
                   {group.title}
                 </h3>
+
                 <ul className="space-y-3">
+
                   {group.items.map((item, i) => (
                     <li key={i}>
+
                       <NavLink
-                        href="#"
+                        href={item.href}
                         onNavigate={closeAllMenus}
                         className="flex flex-col gap-0.5 after:hidden"
                       >
                         <span className="text-sm font-medium text-ink hover:text-royal transition-colors">
                           {item.title}
                         </span>
-                        <span className="text-xs text-ink-muted">{item.description}</span>
+
+                        <span className="text-xs text-ink-muted">
+                          {item.description}
+                        </span>
                       </NavLink>
+
                     </li>
                   ))}
+
                 </ul>
               </div>
             ))}
           </div>
 
-          {/* Dropdown footer bar */}
+          {/* Dropdown footer */}
           <div className="border-t border-border-light py-4">
+
             <div className="container mx-auto flex justify-between items-center px-10">
-              <p className="text-sm text-ink-light">
-                Ready to start your chess journey?{" "}
-                <NavLink href="#" onNavigate={closeAllMenus} className="text-royal font-medium after:bg-royal">
-                  Sign up for free →
-                </NavLink>
-              </p>
+
+
               <div className="flex gap-4">
-                <Button variant="secondary" size="small" onClick={closeAllMenus}>
+
+                <Button
+                  variant="secondary"
+                  size="small"
+                  onClick={goToLogin}
+                >
                   Login
                 </Button>
-                <Button variant="primary" size="small" onClick={goToContact}>
+
+                <Button
+                  variant="primary"
+                  size="small"
+                  onClick={goToContact}
+                >
                   Join Now
                 </Button>
+
               </div>
             </div>
           </div>

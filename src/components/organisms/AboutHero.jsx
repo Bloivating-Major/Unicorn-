@@ -3,10 +3,10 @@ import FloatingChessPieces from "../molecules/FloatingChessPieces";
 
 const AboutHero = () => {
   return (
-    <section className="relative bg-obsidian overflow-hidden">
+    <section className="relative bg-white overflow-hidden">
       {/* Background accents */}
-      <div className="absolute inset-0 board-pattern pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_50%,rgba(201,168,76,0.07),transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 board-pattern pointer-events-none opacity-50" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_50%,rgba(45,58,140,0.04),transparent_70%)] pointer-events-none" />
 
       <div className="section-wrapper relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 min-h-[70vh]">
 
@@ -16,7 +16,7 @@ const AboutHero = () => {
 
           <h1 className="heading-text mb-5 animate-fade-up delay-100">
             Unicorn{" "}
-            <em className="italic text-gold-light">Chess Academy</em>
+            <em className="italic text-royal">Chess Academy</em>
           </h1>
 
           <p className="body-text max-w-lg mx-auto lg:mx-0 mb-8 animate-fade-up delay-200">

@@ -2,7 +2,7 @@ import { aboutHero } from "../../assets/images";
 
 const MissionIntro = () => {
   return (
-    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+    <section className="bg-surface-alt border-y border-border-light section-wrapper">
       <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
 
         {/* Text */}
@@ -10,7 +10,7 @@ const MissionIntro = () => {
           <span className="eyebrow-text block">Our Mission</span>
           <h2 className="heading-text">
             Founded in 2012, dedicated to{" "}
-            <em className="italic text-gold-light">nurturing chess talent</em>
+            <em className="italic text-royal">nurturing chess talent</em>
           </h2>
           <p className="body-text leading-8">
             Ms. Savita Shrivastava and Mr. Ravi Shrivastava — a passionate wife-husband
@@ -27,8 +27,8 @@ const MissionIntro = () => {
               { num: "MP",   label: "Madhya Pradesh" },
             ].map((s) => (
               <div key={s.label}>
-                <p className="font-playfair text-2xl font-bold text-gold-light">{s.num}</p>
-                <p className="text-xs text-ivory-dim mt-1">{s.label}</p>
+                <p className="font-playfair text-2xl font-bold text-royal">{s.num}</p>
+                <p className="text-xs text-ink-muted mt-1">{s.label}</p>
               </div>
             ))}
           </div>
@@ -36,14 +36,12 @@ const MissionIntro = () => {
 
         {/* Image */}
         <div className="flex-1 w-full">
-          <div className="relative rounded-2xl overflow-hidden border border-gold/15 shadow-gold-md">
+          <div className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg">
             <img
               src={aboutHero}
               alt="Unicorn Chess Academy founders"
               className="w-full h-64 sm:h-80 lg:h-96 object-cover"
             />
-            {/* bottom gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-transparent to-transparent" />
           </div>
         </div>
       </div>

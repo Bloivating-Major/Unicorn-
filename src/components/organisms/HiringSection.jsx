@@ -23,7 +23,7 @@ const openings = [
 
 const HiringSection = () => {
   return (
-    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+    <section className="bg-surface-alt border-y border-border-light section-wrapper">
       <div className="space-y-12">
 
         {/* Header row */}
@@ -32,7 +32,7 @@ const HiringSection = () => {
             <span className="eyebrow-text block mb-3">We're Hiring</span>
             <h2 className="heading-text max-w-xl">
               Shape the future of{" "}
-              <em className="italic text-gold-light">chess education</em>
+              <em className="italic text-royal">chess education</em>
             </h2>
           </div>
           <p className="body-text max-w-sm text-sm lg:text-right">
@@ -47,20 +47,20 @@ const HiringSection = () => {
             <div key={i} className="group premium-card p-6 flex flex-col gap-4">
               {/* Badges */}
               <div className="flex gap-2 flex-wrap">
-                <span className="text-xs font-semibold tracking-wide uppercase bg-gold/10 border border-gold/25 text-gold px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold tracking-wide uppercase bg-royal-50 border border-royal/20 text-royal px-3 py-1 rounded-full">
                   {job.type}
                 </span>
-                <span className="text-xs font-medium text-ivory-dim bg-dark-3 border border-gold/10 px-3 py-1 rounded-full">
+                <span className="text-xs font-medium text-ink-muted bg-surface-alt border border-border-light px-3 py-1 rounded-full">
                   {job.location}
                 </span>
               </div>
 
-              <h3 className="font-playfair text-lg font-semibold text-ivory">
+              <h3 className="font-playfair text-lg font-semibold text-ink">
                 {job.title}
               </h3>
               <p className="body-text text-sm leading-7 flex-1">{job.desc}</p>
 
-              <button className="text-gold text-sm font-semibold tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-200 w-fit mt-1">
+              <button className="text-royal text-sm font-semibold tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-200 w-fit mt-1">
                 Apply Now →
               </button>
             </div>
@@ -68,7 +68,7 @@ const HiringSection = () => {
         </div>
 
         {/* Bottom CTA strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-gold/10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-border-light">
           <p className="body-text text-sm max-w-md text-center sm:text-left">
             Don't see a role that fits? Send us your profile — we'd love to hear from passionate people.
           </p>

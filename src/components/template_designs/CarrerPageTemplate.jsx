@@ -8,7 +8,7 @@ import CTASection           from "../organisms/CTASection";
 
 const CarrerPageTemplate = () => {
   return (
-    <main className="bg-obsidian font-poppins">
+    <main className="bg-white font-sans">
       <JoinSection />
       <OpportunitiesSection />
       <EmpowerSection />

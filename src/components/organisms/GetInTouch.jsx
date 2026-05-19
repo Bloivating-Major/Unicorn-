@@ -13,7 +13,6 @@ const GetInTouchForm = () => {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-    // clear individual error on change
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
@@ -42,23 +41,23 @@ const GetInTouchForm = () => {
 
   const Field = ({ label, error, children }) => (
     <div>
-      <label className="block text-xs font-semibold text-ivory-dim uppercase tracking-widest mb-2">
+      <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-2">
         {label}
       </label>
       {children}
-      {error && <p className="text-red-400 text-xs mt-1.5">{error}</p>}
+      {error && <p className="text-red-500 text-xs mt-1.5">{error}</p>}
     </div>
   );
 
   return (
-    <section className="bg-obsidian section-wrapper">
+    <section className="bg-white section-wrapper">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <span className="eyebrow-text block mb-3">Get in Touch</span>
           <h2 className="heading-text mb-3">
             Start a{" "}
-            <em className="italic text-gold-light">conversation</em>
+            <em className="italic text-royal">conversation</em>
           </h2>
           <p className="body-text text-sm">
             Whether you want to join our team or ask a question, we'd love to hear from you.
@@ -66,7 +65,7 @@ const GetInTouchForm = () => {
         </div>
 
         {/* Form card */}
-        <div className="bg-dark-2 border border-gold/15 rounded-2xl p-8 space-y-6">
+        <div className="bg-white border border-border-light rounded-2xl shadow-card p-8 space-y-6">
 
           <Field label="Full Name" error={errors.name}>
             <input
@@ -108,25 +107,25 @@ const GetInTouchForm = () => {
                 type="checkbox"
                 name="terms"
                 id="terms-git"
-                className="mt-1 w-4 h-4 accent-gold cursor-pointer"
+                className="mt-1 w-4 h-4 accent-royal cursor-pointer"
                 checked={formData.terms}
                 onChange={handleChange}
               />
-              <label htmlFor="terms-git" className="text-sm text-ivory-dim cursor-pointer leading-6">
+              <label htmlFor="terms-git" className="text-sm text-ink-light cursor-pointer leading-6">
                 I agree to the{" "}
-                <span className="text-gold underline underline-offset-2">
+                <span className="text-royal underline underline-offset-2">
                   Terms & Conditions
                 </span>
               </label>
             </div>
             {errors.terms && (
-              <p className="text-red-400 text-xs mt-1.5 ml-7">{errors.terms}</p>
+              <p className="text-red-500 text-xs mt-1.5 ml-7">{errors.terms}</p>
             )}
           </div>
 
           {submitted && (
-            <div className="bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3">
-              <p className="text-green-400 text-sm font-medium">
+            <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-3">
+              <p className="text-green-700 text-sm font-medium">
                 ✓ Message sent! We'll get back to you within 24 hours.
               </p>
             </div>

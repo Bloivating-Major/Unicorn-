@@ -29,6 +29,9 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
           <NavLink onNavigate={closeAllMenus} href="/gallery" className="block text-base font-medium py-1">
             Gallery
           </NavLink>
+          <NavLink onNavigate={closeAllMenus} href="/tournaments" className="block text-base font-medium py-1">
+            Tournaments
+          </NavLink>
 
           {/* Services toggle */}
           <div>

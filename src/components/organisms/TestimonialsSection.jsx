@@ -2,7 +2,7 @@ import TestimonialSlider from "../molecules/TestimonialSlider";
 
 const TestimonialSection = () => {
   return (
-    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+    <section className="bg-white border-y border-border-light section-wrapper">
       <div className="relative">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">

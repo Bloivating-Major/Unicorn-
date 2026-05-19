@@ -4,11 +4,11 @@ const GalleryCard = ({ imageSrc, alt }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all duration-300 bg-dark-3 cursor-pointer">
+    <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-border-light hover:border-royal/25 transition-all duration-300 bg-surface-alt shadow-card cursor-pointer">
       {/* Loading skeleton */}
       {!loaded && (
-        <div className="absolute inset-0 bg-dark-3 animate-pulse flex items-center justify-center">
-          <span className="text-gold/20 text-4xl">♟</span>
+        <div className="absolute inset-0 bg-surface-alt animate-pulse flex items-center justify-center">
+          <span className="text-royal/20 text-4xl">♟</span>
         </div>
       )}
 
@@ -21,8 +21,8 @@ const GalleryCard = ({ imageSrc, alt }) => {
       />
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-        <p className="text-ivory text-sm font-medium">{alt}</p>
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+        <p className="text-white text-sm font-medium">{alt}</p>
       </div>
     </div>
   );

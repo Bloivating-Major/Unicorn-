@@ -4,9 +4,9 @@ import Button from "../atoms/Button";
 const CTASection = () => {
   return (
     <section className="section-wrapper">
-      <div className="relative bg-gradient-to-br from-gold/10 to-gold/4 border border-gold/25 rounded-3xl px-8 sm:px-12 lg:px-16 py-14 lg:py-20 overflow-hidden">
-        {/* Giant queen watermark */}
-        <span className="absolute right-8 top-1/2 -translate-y-1/2 text-[200px] leading-none text-gold/4 font-serif pointer-events-none select-none hidden lg:block">
+      <div className="relative bg-gradient-to-br from-royal-50 to-white border border-royal/15 rounded-3xl px-8 sm:px-12 lg:px-16 py-14 lg:py-20 overflow-hidden shadow-card-lg">
+        {/* Queen watermark */}
+        <span className="absolute right-8 top-1/2 -translate-y-1/2 text-[200px] leading-none text-royal/5 font-serif pointer-events-none select-none hidden lg:block">
           ♛
         </span>
 
@@ -16,7 +16,7 @@ const CTASection = () => {
             <span className="eyebrow-text block mb-3">Ready to begin?</span>
             <h2 className="heading-text mb-4">
               Unlock your{" "}
-              <em className="italic text-gold-light">chess potential</em>{" "}
+              <em className="italic text-royal">chess potential</em>{" "}
               today
             </h2>
             <p className="body-text max-w-lg mx-auto lg:mx-0">
@@ -32,7 +32,7 @@ const CTASection = () => {
               Join the Academy
             </Button>
             <Button variant="secondary" size="large" className="w-full sm:w-auto justify-center">
-              Schedule a Free Trial
+              Book Free Trial Class
             </Button>
           </div>
         </div>

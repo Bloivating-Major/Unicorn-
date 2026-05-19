@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Youtube, MessageCircle } from "lucide-react";
 import ContactCard from "../molecules/ContactCard";
 
 const ContactDetails = () => {
@@ -15,26 +15,26 @@ const ContactDetails = () => {
         <ContactCard
           icon={Phone}
           title="Aditi Shrivastava"
-          value="97131 09488"
+          value="+91 97131 09488"
           href="tel:9713109488"
         />
         <ContactCard
-          icon={Phone}
-          title="Anand"
-          value="73892 09576"
-          href="tel:7389209576"
+          icon={MessageCircle}
+          title="WhatsApp"
+          value="+91 73892 09576"
+          href="https://wa.me/917389209576"
         />
         <ContactCard
           icon={Mail}
           title="Email"
-          value="unicornchessacademy21@gmail.com"
-          href="mailto:unicornchessacademy21@gmail.com"
+          value="unicornnchessacademy21@gmail.com"
+          href="mailto:unicornnchessacademy21@gmail.com"
         />
         <ContactCard
-          icon={Mail}
-          title="Support"
-          value="support@unicornchessacademy.com"
-          href="mailto:support@unicornchessacademy.com"
+          icon={Instagram}
+          title="Instagram"
+          value="@unicorn_chess_academy"
+          href="https://www.instagram.com/unicorn_chess_academy/"
         />
         <div className="sm:col-span-2">
           <ContactCard
@@ -46,12 +46,12 @@ const ContactDetails = () => {
       </div>
 
       {/* Social */}
-      <div className="flex gap-4 pt-2">
+      <div className="flex flex-wrap gap-3 pt-2">
         <a
           href="https://www.instagram.com/unicorn_chess_academy/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-3 border border-gold/15 text-ivory-dim text-sm hover:border-gold/35 hover:text-gold transition-all duration-200"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-alt border border-border-light text-ink-light text-sm hover:border-royal/25 hover:text-royal transition-all duration-200"
         >
           <Instagram size={16} />
           Instagram
@@ -60,10 +60,19 @@ const ContactDetails = () => {
           href="https://www.youtube.com/@UnicornChessAcadamy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-3 border border-gold/15 text-ivory-dim text-sm hover:border-gold/35 hover:text-gold transition-all duration-200"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-alt border border-border-light text-ink-light text-sm hover:border-royal/25 hover:text-royal transition-all duration-200"
         >
           <Youtube size={16} />
           YouTube
+        </a>
+        <a
+          href="https://chat.whatsapp.com/Eq3e80MewtWER9ecUJ4Hj9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm hover:bg-green-100 transition-all duration-200"
+        >
+          <MessageCircle size={16} />
+          Join WhatsApp Community
         </a>
       </div>
     </div>

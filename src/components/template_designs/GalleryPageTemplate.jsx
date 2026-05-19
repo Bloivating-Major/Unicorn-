@@ -4,7 +4,7 @@ import CTASection    from "../organisms/CTASection";
 
 const GalleryPageTemplate = () => {
   return (
-    <main className="bg-obsidian font-poppins">
+    <main className="bg-white font-sans">
       <GalleryHero />
       <ImageGallery />
       <CTASection />

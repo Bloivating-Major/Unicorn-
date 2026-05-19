@@ -3,7 +3,7 @@ import { aboutUsPage } from "../../assets/images";
 
 const JoinAcademyCTA = () => {
   return (
-    <section className="bg-dark-2 border-y border-gold/10 section-wrapper">
+    <section className="bg-white border-y border-border-light section-wrapper">
       <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
         {/* Text */}
@@ -11,7 +11,7 @@ const JoinAcademyCTA = () => {
           <span className="eyebrow-text">Join Us</span>
           <h2 className="heading-text">
             Unlock your potential —{" "}
-            <em className="italic text-gold-light">
+            <em className="italic text-royal">
               join our Chess Academy
             </em>{" "}
             community today
@@ -30,13 +30,12 @@ const JoinAcademyCTA = () => {
 
         {/* Image */}
         <div className="order-1 lg:order-2">
-          <div className="relative rounded-2xl overflow-hidden border border-gold/15 shadow-gold-md">
+          <div className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg">
             <img
               src={aboutUsPage}
               alt="Students at Unicorn Chess Academy"
               className="w-full h-64 sm:h-80 lg:h-96 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-transparent to-transparent" />
           </div>
         </div>
       </div>

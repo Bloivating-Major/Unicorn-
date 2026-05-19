@@ -3,7 +3,7 @@ import React from "react";
 const MenuGroup = ({ title, items }) => {
   return (
     <div>
-      <h3 className="text-xs font-bold tracking-widest uppercase text-gold mb-4">
+      <h3 className="text-xs font-bold tracking-widest uppercase text-royal mb-4">
         {title}
       </h3>
       <ul className="space-y-3">
@@ -13,12 +13,12 @@ const MenuGroup = ({ title, items }) => {
               href="#"
               className="flex flex-col gap-0.5 group cursor-pointer"
             >
-              <span className="text-sm font-medium text-ivory group-hover:text-gold-light transition-colors duration-200 flex items-center gap-2">
-                <span className="text-gold/60 text-xs">♟</span>
+              <span className="text-sm font-medium text-ink group-hover:text-royal transition-colors duration-200 flex items-center gap-2">
+                <span className="text-royal/40 text-xs">♟</span>
                 {item.title}
               </span>
               {item.description && (
-                <span className="text-xs text-ivory-dim pl-5 hidden sm:block">
+                <span className="text-xs text-ink-muted pl-5 hidden sm:block">
                   {item.description}
                 </span>
               )}
