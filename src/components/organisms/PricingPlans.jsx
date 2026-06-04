@@ -89,7 +89,7 @@ const PricingPlans = () => {
           rel="noopener noreferrer"
           className="text-royal font-semibold underline underline-offset-2 hover:text-royal-dark transition-colors"
         >
-          chat.whatsapp.com/Eq3e80MewtWER9ecUJ4Hj9
+          Join WhatsApp Community →
         </a>
         <p className="text-ink-muted text-sm mt-1">Get updates, tips & stay connected with the Unicorn Chess family.</p>
       </div>
