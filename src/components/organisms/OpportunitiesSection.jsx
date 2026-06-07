@@ -1,4 +1,10 @@
+import { motion } from "framer-motion";
 import Button from "../atoms/Button";
+import {
+  slideInLeft,
+  slideInRight,
+  viewportOnce,
+} from "../../lib/animations";
 
 const OpportunitiesSection = () => {
   return (
@@ -6,7 +12,13 @@ const OpportunitiesSection = () => {
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
         {/* Text */}
-        <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+        <motion.div
+          className="flex-1 text-center lg:text-left order-2 lg:order-1"
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <span className="eyebrow-text block mb-4">Opportunities</span>
           <h2 className="heading-text mb-5">
             Unlock opportunities for passionate{" "}
@@ -22,14 +34,30 @@ const OpportunitiesSection = () => {
             <Button variant="primary" size="large">Join as Coach</Button>
             <Button variant="secondary" size="large">Learn More</Button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Decorative */}
-        <div className="flex-1 order-1 lg:order-2 w-full">
-          <div className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg bg-royal-50 h-72 sm:h-80 lg:h-96 flex items-center justify-center">
-            <span className="text-[120px] text-royal/10 font-serif select-none">♞</span>
-          </div>
-        </div>
+        <motion.div
+          className="flex-1 order-1 lg:order-2 w-full"
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.div
+            className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg bg-royal-50 h-72 sm:h-80 lg:h-96 flex items-center justify-center"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.span
+              className="text-[120px] text-royal/10 font-serif select-none"
+              animate={{ rotate: [0, 3, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            >
+              ♞
+            </motion.span>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

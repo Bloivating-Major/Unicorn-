@@ -1,4 +1,12 @@
+import { motion } from "framer-motion";
 import { aboutHero } from "../../assets/images";
+import {
+  slideInLeft,
+  slideInRight,
+  staggerContainer,
+  statItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 const MissionIntro = () => {
   return (
@@ -6,7 +14,13 @@ const MissionIntro = () => {
       <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
 
         {/* Text */}
-        <div className="flex-1 space-y-6">
+        <motion.div
+          className="flex-1 space-y-6"
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <span className="eyebrow-text block">Our Mission</span>
           <h2 className="heading-text">
             Founded in 2012, dedicated to{" "}
@@ -20,22 +34,34 @@ const MissionIntro = () => {
           </p>
 
           {/* Founders stat strip */}
-          <div className="flex gap-8 pt-4">
+          <motion.div
+            className="flex gap-8 pt-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             {[
               { num: "2012", label: "Founded" },
               { num: "2",    label: "Visionary Founders" },
               { num: "MP",   label: "Madhya Pradesh" },
             ].map((s) => (
-              <div key={s.label}>
+              <motion.div key={s.label} variants={statItem}>
                 <p className="font-playfair text-2xl font-bold text-royal">{s.num}</p>
                 <p className="text-xs text-ink-muted mt-1">{s.label}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Image */}
-        <div className="flex-1 w-full">
+        <motion.div
+          className="flex-1 w-full"
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <div className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg">
             <img
               src={aboutHero}
@@ -43,7 +69,7 @@ const MissionIntro = () => {
               className="w-full h-64 sm:h-80 lg:h-96 object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

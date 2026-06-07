@@ -1,5 +1,12 @@
+import { motion } from "framer-motion";
 import Button from "../atoms/Button";
 import FloatingChessPieces from "../molecules/FloatingChessPieces";
+import {
+  heroContainer,
+  heroItem,
+  slideInRight,
+  viewportOnce,
+} from "../../lib/animations";
 
 const AboutHero = () => {
   return (
@@ -11,29 +18,41 @@ const AboutHero = () => {
       <div className="section-wrapper relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 min-h-[70vh]">
 
         {/* Left copy */}
-        <div className="flex-1 text-center lg:text-left">
-          <span className="eyebrow-text block mb-4 animate-fade-up">Our Story</span>
+        <motion.div
+          className="flex-1 text-center lg:text-left"
+          variants={heroContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span variants={heroItem} className="eyebrow-text block mb-4">
+            Our Story
+          </motion.span>
 
-          <h1 className="heading-text mb-5 animate-fade-up delay-100">
+          <motion.h1 variants={heroItem} className="heading-text mb-5">
             Unicorn{" "}
             <em className="italic text-royal">Chess Academy</em>
-          </h1>
+          </motion.h1>
 
-          <p className="body-text max-w-lg mx-auto lg:mx-0 mb-8 animate-fade-up delay-200">
+          <motion.p variants={heroItem} className="body-text max-w-lg mx-auto lg:mx-0 mb-8">
             A leading institution dedicated to chess excellence and mental wellness
             for all ages — from curious beginners to competitive champions.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-up delay-300">
+          <motion.div variants={heroItem} className="flex flex-wrap justify-center lg:justify-start gap-4">
             <Button variant="primary" size="large">Join the Academy</Button>
             <Button variant="secondary" size="large">Learn More</Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right — floating pieces */}
-        <div className="flex-1 w-full max-w-lg animate-fade-up delay-200">
+        <motion.div
+          className="flex-1 w-full max-w-lg"
+          variants={slideInRight}
+          initial="hidden"
+          animate="visible"
+        >
           <FloatingChessPieces />
-        </div>
+        </motion.div>
       </div>
 
       <div className="gold-divider" />

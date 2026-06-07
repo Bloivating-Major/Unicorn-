@@ -1,5 +1,13 @@
+import { motion } from "framer-motion";
 import { CheckCircle, Clock, Monitor, Award } from "lucide-react";
 import Button from "../atoms/Button";
+import {
+  fadeUp,
+  staggerContainer,
+  fadeUpItem,
+  scaleUpItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 const programs = [
   {
@@ -74,7 +82,13 @@ const ProgramsOverview = () => {
   return (
     <section className="bg-white section-wrapper">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-16">
+      <motion.div
+        className="text-center max-w-2xl mx-auto mb-16"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <span className="eyebrow-text block mb-3">Courses / Programs</span>
         <h2 className="heading-text mb-4">
           Our Chess{" "}
@@ -83,13 +97,20 @@ const ProgramsOverview = () => {
         <p className="body-text">
           Structured learning paths designed for every level — from first move to tournament mastery.
         </p>
-      </div>
+      </motion.div>
 
       {/* Main program cards */}
-      <div className="space-y-8 mb-16">
+      <motion.div
+        className="space-y-8 mb-16"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {programs.map((prog, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={fadeUpItem}
             className="group premium-card p-8 flex flex-col lg:flex-row gap-8"
           >
             {/* Left: number + title */}
@@ -142,18 +163,30 @@ const ProgramsOverview = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Special Programs */}
-      <div className="mb-16">
+      <motion.div
+        className="mb-16"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <h3 className="font-playfair text-2xl font-bold text-ink mb-8 text-center">
           Special Programs
         </h3>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <motion.div
+          className="grid sm:grid-cols-2 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {specialPrograms.map((sp, i) => (
-            <div key={i} className="premium-card p-6">
+            <motion.div key={i} variants={scaleUpItem} className="premium-card p-6">
               <h4 className="font-semibold text-ink mb-4">{sp.title}</h4>
               <ul className="space-y-2">
                 {sp.points.map((pt, j) => (
@@ -163,23 +196,39 @@ const ProgramsOverview = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Why our programs work */}
-      <div className="bg-gradient-to-br from-royal-50 to-white border border-royal/15 rounded-2xl p-8">
+      <motion.div
+        className="bg-gradient-to-br from-royal-50 to-white border border-royal/15 rounded-2xl p-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <h3 className="font-playfair text-2xl font-bold text-ink mb-6 text-center">Why Our Programs Work</h3>
-        <div className="grid sm:grid-cols-2 gap-4">
+        <motion.div
+          className="grid sm:grid-cols-2 gap-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {whyItWorks.map((item, i) => (
-            <div key={i} className="flex items-center gap-3 text-sm text-ink-light">
+            <motion.div
+              key={i}
+              variants={fadeUpItem}
+              className="flex items-center gap-3 text-sm text-ink-light"
+            >
               <span className="w-6 h-6 rounded-full bg-royal/10 flex items-center justify-center text-royal text-xs font-bold flex-shrink-0">✓</span>
               {item}
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

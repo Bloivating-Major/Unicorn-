@@ -1,5 +1,14 @@
+import { motion } from "framer-motion";
 import { Brain, Users, GraduationCap } from "lucide-react";
 import Button from "../atoms/Button";
+import {
+  fadeUp,
+  staggerContainer,
+  scaleUpItem,
+  slideInLeft,
+  slideInRight,
+  viewportOnce,
+} from "../../lib/animations";
 
 const benefits = [
   {
@@ -25,24 +34,47 @@ const EmpowerSection = () => {
       <div className="space-y-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          <div className="max-w-2xl">
+          <motion.div
+            className="max-w-2xl"
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             <span className="eyebrow-text block mb-3">Empower</span>
             <h2 className="heading-text">
               Unlock your potential with{" "}
               <em className="italic text-royal">Chess Mastery</em>
             </h2>
-          </div>
-          <p className="body-text max-w-sm text-sm lg:text-right">
+          </motion.div>
+          <motion.p
+            className="body-text max-w-sm text-sm lg:text-right"
+            variants={slideInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             Join our academy to experience unparalleled growth in chess — and in life.
-          </p>
+          </motion.p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {benefits.map((b, i) => {
             const Icon = b.icon;
             return (
-              <div key={i} className="group premium-card p-7 space-y-4">
+              <motion.div
+                key={i}
+                variants={scaleUpItem}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group premium-card p-7 space-y-4"
+              >
                 <div className="w-11 h-11 rounded-xl bg-royal-50 border border-royal/15 flex items-center justify-center text-royal group-hover:bg-royal-100 transition-all duration-200">
                   <Icon size={20} />
                 </div>
@@ -50,15 +82,20 @@ const EmpowerSection = () => {
                   {b.title}
                 </h3>
                 <p className="body-text text-sm leading-7">{b.desc}</p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
           <Button variant="primary" size="large">Join Our Academy</Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

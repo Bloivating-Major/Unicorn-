@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  fadeUp,
+  slideInLeft,
+  viewportOnce,
+} from "../../lib/animations";
 
 const GetInTouchForm = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +59,13 @@ const GetInTouchForm = () => {
     <section className="bg-white section-wrapper">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <span className="eyebrow-text block mb-3">Get in Touch</span>
           <h2 className="heading-text mb-3">
             Start a{" "}
@@ -62,10 +74,16 @@ const GetInTouchForm = () => {
           <p className="body-text text-sm">
             Whether you want to join our team or ask a question, we'd love to hear from you.
           </p>
-        </div>
+        </motion.div>
 
         {/* Form card */}
-        <div className="bg-white border border-border-light rounded-2xl shadow-card p-8 space-y-6">
+        <motion.div
+          className="bg-white border border-border-light rounded-2xl shadow-card p-8 space-y-6"
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
 
           <Field label="Full Name" error={errors.name}>
             <input
@@ -114,7 +132,7 @@ const GetInTouchForm = () => {
               <label htmlFor="terms-git" className="text-sm text-ink-light cursor-pointer leading-6">
                 I agree to the{" "}
                 <span className="text-royal underline underline-offset-2">
-                  Terms & Conditions
+                  Terms &amp; Conditions
                 </span>
               </label>
             </div>
@@ -123,13 +141,21 @@ const GetInTouchForm = () => {
             )}
           </div>
 
-          {submitted && (
-            <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-3">
-              <p className="text-green-700 text-sm font-medium">
-                ✓ Message sent! We'll get back to you within 24 hours.
-              </p>
-            </div>
-          )}
+          <AnimatePresence>
+            {submitted && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35 }}
+                className="bg-green-50 border border-green-200 rounded-xl px-4 py-3"
+              >
+                <p className="text-green-700 text-sm font-medium">
+                  ✓ Message sent! We'll get back to you within 24 hours.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <button
             type="submit"
@@ -138,7 +164,7 @@ const GetInTouchForm = () => {
           >
             Send Message →
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

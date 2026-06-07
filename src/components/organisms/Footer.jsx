@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import NavLink from "../atoms/NavLink";
 import { UnicornLogo } from "../../assets/images";
 import { Instagram, Youtube, MessageCircle } from "lucide-react";
+import { staggerContainer, fadeUpItem, viewportOnce } from "../../lib/animations";
 
 const footerLinks = [
   {
@@ -36,11 +38,17 @@ const Footer = () => {
   return (
     <footer className="bg-surface-alt border-t border-border-light font-sans">
       {/* Main footer grid */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pt-16 pb-10">
+      <motion.div
+        className="container mx-auto px-4 sm:px-6 lg:px-16 pt-16 pb-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand column */}
-          <div className="lg:col-span-1">
+          <motion.div variants={fadeUpItem} className="lg:col-span-1">
             <NavLink href="/" className="inline-flex items-center gap-3 after:hidden mb-4">
                 <div>
                   <img src={UnicornLogo} alt="Unicorn Chess Logo" className="w-14 h-14 rounded-lg bg-gradient-to-br from-royal-light to-royal flex items-center justify-center text-white text-lg font-bold shadow-brand-sm" />
@@ -91,11 +99,11 @@ const Footer = () => {
                 <MessageCircle size={16} />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Link columns */}
           {footerLinks.map((col) => (
-            <div key={col.title}>
+            <motion.div key={col.title} variants={fadeUpItem}>
               <h4 className="eyebrow-text mb-5">{col.title}</h4>
               <ul className="space-y-3">
                 {col.links.map((link) => (
@@ -106,10 +114,10 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom bar */}
       <div className="border-t border-border-light">

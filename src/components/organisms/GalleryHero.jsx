@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { heroContainer, heroItem, viewportOnce } from "../../lib/animations";
+
 const GalleryHero = () => {
   return (
     <section className="relative bg-white overflow-hidden">
@@ -6,18 +9,30 @@ const GalleryHero = () => {
 
       <div className="section-wrapper relative z-10 pt-20 pb-16">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-          <div className="max-w-xl">
-            <span className="eyebrow-text block mb-4 animate-fade-up">Gallery</span>
-            <h1 className="heading-text animate-fade-up delay-100">
+          <motion.div
+            className="max-w-xl"
+            variants={heroContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span variants={heroItem} className="eyebrow-text block mb-4">
+              Gallery
+            </motion.span>
+            <motion.h1 variants={heroItem} className="heading-text">
               Our Chess{" "}
               <em className="italic text-royal">Gallery</em>
-            </h1>
-          </div>
-          <p className="max-w-md body-text leading-8 animate-fade-up delay-200">
+            </motion.h1>
+          </motion.div>
+          <motion.p
+            className="max-w-md body-text leading-8"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+          >
             Explore moments captured at our Chess Academy — from intense matches
             to joyful victories. Each image tells a story of dedication, skill, and
             the vibrant community we foster.
-          </p>
+          </motion.p>
         </div>
       </div>
 

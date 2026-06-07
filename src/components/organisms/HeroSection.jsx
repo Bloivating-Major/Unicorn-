@@ -1,4 +1,13 @@
+import { motion } from "framer-motion";
 import Button from "../atoms/Button";
+import {
+  heroContainer,
+  heroItem,
+  slideInRight,
+  staggerContainer,
+  statItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 /* ── Mini chess board visual ── */
 const PIECES = {
@@ -64,51 +73,67 @@ const HeroSection = () => {
       <div className="section-wrapper relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 min-h-[80vh]">
 
         {/* ── LEFT COPY ── */}
-        <div className="flex-1 text-center lg:text-left">
+        <motion.div
+          className="flex-1 text-center lg:text-left"
+          variants={heroContainer}
+          initial="hidden"
+          animate="visible"
+        >
           {/* eyebrow badge */}
-          <span className="inline-flex items-center gap-2 bg-royal-50 border border-royal/20 rounded-full px-4 py-1.5 text-royal text-xs font-semibold tracking-widest uppercase mb-6 animate-fade-up">
+          <motion.span
+            variants={heroItem}
+            className="inline-flex items-center gap-2 bg-royal-50 border border-royal/20 rounded-full px-4 py-1.5 text-royal text-xs font-semibold tracking-widest uppercase mb-6"
+          >
             ♟ Unicorn Chess Academy · Est. 2012
-          </span>
+          </motion.span>
 
-          <h1 className="heading-text text-4xl sm:text-5xl lg:text-6xl mb-5 animate-fade-up delay-100">
+          <motion.h1 variants={heroItem} className="heading-text text-4xl sm:text-5xl lg:text-6xl mb-5">
             Master the{" "}
             <em className="text-royal italic">Art of Chess</em>
-          </h1>
+          </motion.h1>
 
-          <p className="body-text text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-up delay-200">
+          <motion.p variants={heroItem} className="body-text text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8">
             Join India's most passionate chess coaching academy. From total
             beginners to competitive champions — we shape strategic minds with
             expert coaching, vibrant community, and elite tournaments.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-up delay-300">
+          <motion.div variants={heroItem} className="flex flex-wrap justify-center lg:justify-start gap-4">
             <Button variant="primary" size="large">Book Free Demo Class</Button>
             <Button variant="secondary" size="large">Explore Programs</Button>
-          </div>
+          </motion.div>
 
           {/* Stats row */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-8 mt-10 animate-fade-up delay-400">
+          <motion.div
+            className="flex flex-wrap justify-center lg:justify-start gap-8 mt-10"
+            variants={staggerContainer}
+          >
             {[
               { num: "500+", label: "Students Trained" },
               { num: "12+",  label: "Years of Excellence" },
               { num: "50+",  label: "Tournament Wins" },
             ].map((s) => (
-              <div key={s.label} className="flex flex-col items-center lg:items-start">
+              <motion.div key={s.label} variants={statItem} className="flex flex-col items-center lg:items-start">
                 <span className="font-playfair text-2xl font-bold text-royal leading-none">
                   {s.num}
                 </span>
                 <span className="text-xs text-ink-muted mt-1">{s.label}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* ── RIGHT VISUAL ── */}
-        <div className="flex-1 flex items-center justify-center animate-fade-up delay-200">
+        <motion.div
+          className="flex-1 flex items-center justify-center"
+          variants={slideInRight}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="relative">
             <ChessBoard />
           </div>
-        </div>
+        </motion.div>
 
       </div>
 

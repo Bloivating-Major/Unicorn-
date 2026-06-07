@@ -1,5 +1,12 @@
+import { motion } from "framer-motion";
 import { Trophy, MapPin, Calendar } from "lucide-react";
 import { tournaments } from "../../lib/constants/tournaments";
+import {
+  fadeUp,
+  staggerContainer,
+  statItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 const badgeColors = {
   "FIDE Rated":   "bg-amber-50 border-amber-200 text-amber-700",
@@ -50,7 +57,13 @@ const TournamentsSection = () => {
   return (
     <section className="bg-white section-wrapper">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-16">
+      <motion.div
+        className="text-center max-w-2xl mx-auto mb-16"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <span className="eyebrow-text block mb-3">Our Tournaments</span>
         <h1 className="heading-text mb-4">
           Unicorn Chess{" "}
@@ -62,28 +75,47 @@ const TournamentsSection = () => {
         </p>
 
         {/* Quick stats */}
-        <div className="flex justify-center gap-8 mt-8">
+        <motion.div
+          className="flex justify-center gap-8 mt-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {[
             { num: `${totalEvents}+`, label: "Events Organized" },
             { num: `${totalYears}`,   label: "Years Active" },
             { num: "MP & Beyond",     label: "Reach" },
           ].map((s) => (
-            <div key={s.label} className="flex flex-col items-center">
+            <motion.div key={s.label} variants={statItem} className="flex flex-col items-center">
               <span className="font-playfair text-2xl font-bold text-royal">{s.num}</span>
               <span className="text-xs text-ink-muted mt-0.5">{s.label}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Timeline */}
       <div className="max-w-4xl mx-auto relative">
         {/* Vertical line */}
         <div className="absolute left-[72px] md:left-[88px] top-0 bottom-0 w-px bg-border-light hidden sm:block" />
 
-        <div className="space-y-8">
+        <motion.div
+          className="space-y-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {tournaments.map((yearGroup, yi) => (
-            <div key={yi} className="flex gap-4 sm:gap-6">
+            <motion.div
+              key={yi}
+              variants={{
+                hidden:  { opacity: 0, x: -30 },
+                visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              className="flex gap-4 sm:gap-6"
+            >
               {/* Year badge — sticky on left */}
               <div className="flex-shrink-0 w-[60px] sm:w-[76px]">
                 <div className={`
@@ -119,13 +151,19 @@ const TournamentsSection = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom CTA */}
-      <div className="mt-16 text-center">
+      <motion.div
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-royal-50 border border-royal/15 rounded-2xl px-8 py-6">
           <div className="text-left">
             <p className="font-playfair font-bold text-ink text-lg">Want to participate in our next tournament?</p>
@@ -150,7 +188,7 @@ const TournamentsSection = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

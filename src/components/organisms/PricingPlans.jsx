@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import { pricingPlans } from "../../lib/constants/pricingPlans";
 import Button from "../atoms/Button";
+import {
+  fadeUp,
+  staggerContainer,
+  viewportOnce,
+} from "../../lib/animations";
 
 const PricingPlans = () => {
   return (
     <section className="bg-surface-alt section-wrapper">
       {/* Header */}
-      <div className="text-center mb-12">
+      <motion.div
+        className="text-center mb-12"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <span className="eyebrow-text block mb-3">Pricing</span>
         <h2 className="heading-text mb-4">
           Simple,{" "}
@@ -15,17 +27,33 @@ const PricingPlans = () => {
         <p className="body-text max-w-md mx-auto">
           No hidden fees. Membership fee ₹1,200/year + Kit fee ₹1,500 (one-time) applies to all programs.
         </p>
-      </div>
+      </motion.div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {pricingPlans.map((plan, index) => {
           const isFeatured = index === 1;
 
           return (
-            <div
+            <motion.div
               key={index}
-              className={`relative flex flex-col rounded-2xl p-7 border transition-all duration-300 hover:-translate-y-1
+              variants={{
+                hidden:  { opacity: 0, y: 40, scale: 0.96 },
+                visible: {
+                  opacity: 1,
+                  y: isFeatured ? -8 : 0,
+                  scale: isFeatured ? 1.02 : 1,
+                  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+              whileHover={{ y: isFeatured ? -14 : -6, transition: { duration: 0.2 } }}
+              className={`relative flex flex-col rounded-2xl p-7 border transition-all duration-300
                 ${isFeatured
                   ? "bg-gradient-to-b from-royal-50 to-white border-royal/30 shadow-brand-md"
                   : "bg-white border-border-light shadow-card hover:border-royal/20 hover:shadow-card-lg"
@@ -60,10 +88,17 @@ const PricingPlans = () => {
               {/* Features */}
               <ul className="space-y-3 flex-1 mb-8">
                 {plan.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-ink-light">
+                  <motion.li
+                    key={i}
+                    className="flex items-start gap-3 text-sm text-ink-light"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={viewportOnce}
+                    transition={{ delay: 0.3 + i * 0.06, duration: 0.4 }}
+                  >
                     <span className="text-royal font-bold text-xs mt-0.5 flex-shrink-0">✓</span>
                     {f}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
@@ -75,13 +110,19 @@ const PricingPlans = () => {
               >
                 {index === 0 ? "Book Free Demo" : index === 1 ? "Join Intermediate" : "Apply Now"}
               </Button>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Community join note */}
-      <div className="mt-12 text-center p-6 bg-royal-50 border border-royal/15 rounded-2xl">
+      <motion.div
+        className="mt-12 text-center p-6 bg-royal-50 border border-royal/15 rounded-2xl"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+      >
         <p className="text-ink font-medium mb-2">🎉 Join our WhatsApp Community</p>
         <a
           href="https://chat.whatsapp.com/Eq3e80MewtWER9ecUJ4Hj9"
@@ -91,8 +132,8 @@ const PricingPlans = () => {
         >
           Join WhatsApp Community →
         </a>
-        <p className="text-ink-muted text-sm mt-1">Get updates, tips & stay connected with the Unicorn Chess family.</p>
-      </div>
+        <p className="text-ink-muted text-sm mt-1">Get updates, tips &amp; stay connected with the Unicorn Chess family.</p>
+      </motion.div>
     </section>
   );
 };

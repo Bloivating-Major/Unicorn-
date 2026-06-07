@@ -1,5 +1,11 @@
+import { motion } from "framer-motion";
 import Button from "../atoms/Button";
 import { aboutUsPage } from "../../assets/images";
+import {
+  slideInLeft,
+  slideInRight,
+  viewportOnce,
+} from "../../lib/animations";
 
 const JoinAcademyCTA = () => {
   return (
@@ -7,7 +13,13 @@ const JoinAcademyCTA = () => {
       <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
         {/* Text */}
-        <div className="flex flex-col gap-5 order-2 lg:order-1 text-center lg:text-left">
+        <motion.div
+          className="flex flex-col gap-5 order-2 lg:order-1 text-center lg:text-left"
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <span className="eyebrow-text">Join Us</span>
           <h2 className="heading-text">
             Unlock your potential —{" "}
@@ -26,10 +38,16 @@ const JoinAcademyCTA = () => {
             <Button variant="primary" size="large">Join Now</Button>
             <Button variant="secondary" size="large">Learn More</Button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Image */}
-        <div className="order-1 lg:order-2">
+        <motion.div
+          className="order-1 lg:order-2"
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <div className="relative rounded-2xl overflow-hidden border border-border-light shadow-card-lg">
             <img
               src={aboutUsPage}
@@ -37,7 +55,7 @@ const JoinAcademyCTA = () => {
               className="w-full h-64 sm:h-80 lg:h-96 object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

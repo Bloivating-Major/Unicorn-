@@ -1,4 +1,12 @@
+import { motion } from "framer-motion";
 import { CheckCircle, Target, BookOpen, Brain, Trophy } from "lucide-react";
+import {
+  fadeUp,
+  staggerContainer,
+  scaleUpItem,
+  fadeUpItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 const levels = [
   {
@@ -81,7 +89,13 @@ const CurriculumSection = () => {
   return (
     <section className="bg-surface-alt section-wrapper">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-16">
+      <motion.div
+        className="text-center max-w-2xl mx-auto mb-16"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <span className="eyebrow-text block mb-3">Curriculum / Syllabus</span>
         <h2 className="heading-text mb-4">
           Our Structured Chess{" "}
@@ -92,12 +106,18 @@ const CurriculumSection = () => {
           Each level focuses on specific skills, ensuring students not only learn chess
           but develop thinking, discipline, and decision-making.
         </p>
-      </div>
+      </motion.div>
 
       {/* Level cards */}
-      <div className="grid sm:grid-cols-2 gap-6 mb-16">
+      <motion.div
+        className="grid sm:grid-cols-2 gap-6 mb-16"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {levels.map((lvl, index) => (
-          <div key={index} className="premium-card p-7 flex flex-col gap-5">
+          <motion.div key={index} variants={scaleUpItem} className="premium-card p-7 flex flex-col gap-5">
             {/* Tag + title */}
             <div>
               <span className="eyebrow-text block mb-1">{lvl.tag} · {lvl.subtitle}</span>
@@ -137,18 +157,24 @@ const CurriculumSection = () => {
                 <span className="text-xs text-ink-muted font-medium">⏱ {lvl.duration}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Assessment + Approach */}
-      <div className="grid sm:grid-cols-2 gap-6">
-        <div className="premium-card p-7">
+      <motion.div
+        className="grid sm:grid-cols-2 gap-6"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
+        <motion.div variants={fadeUpItem} className="premium-card p-7">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-9 h-9 rounded-xl bg-royal-50 border border-royal/15 flex items-center justify-center text-royal">
               <BookOpen size={18} />
             </div>
-            <h3 className="font-playfair text-lg font-bold text-ink">Assessment & Progress Tracking</h3>
+            <h3 className="font-playfair text-lg font-bold text-ink">Assessment &amp; Progress Tracking</h3>
           </div>
           <ul className="space-y-3">
             {assessmentPoints.map((pt, i) => (
@@ -158,9 +184,9 @@ const CurriculumSection = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="premium-card p-7">
+        <motion.div variants={fadeUpItem} className="premium-card p-7">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-9 h-9 rounded-xl bg-royal-50 border border-royal/15 flex items-center justify-center text-royal">
               <Brain size={18} />
@@ -175,16 +201,22 @@ const CurriculumSection = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Closing statement */}
-      <div className="mt-10 text-center">
+      <motion.div
+        className="mt-10 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={viewportOnce}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
         <p className="text-ink-light text-sm max-w-2xl mx-auto italic">
           "Our curriculum is not just about mastering chess — it's about shaping disciplined,
           confident thinkers ready to win both on and off the board."
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };

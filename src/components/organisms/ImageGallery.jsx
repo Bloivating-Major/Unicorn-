@@ -1,5 +1,11 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import GalleryCard from "../molecules/GalleryCard";
+import {
+  staggerContainer,
+  scaleUpItem,
+  viewportOnce,
+} from "../../lib/animations";
 
 const PLACEHOLDER_IMAGES = Array.from({ length: 9 }, (_, i) => ({
   src: `https://picsum.photos/seed/chess${i + 1}/600/450`,
@@ -14,7 +20,13 @@ const ImageGallery = () => {
   return (
     <section className="section-wrapper bg-surface-alt">
       {/* Filter tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-12">
+      <motion.div
+        className="flex flex-wrap justify-center gap-2 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         {FILTERS.map((f) => (
           <button
             key={f}
@@ -28,26 +40,41 @@ const ImageGallery = () => {
             {f}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Gallery grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {PLACEHOLDER_IMAGES.map((img, idx) => (
-          <div
-            key={idx}
-            className={idx === 0 || idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""}
-          >
-            <GalleryCard imageSrc={img.src} alt={img.alt} />
-          </div>
-        ))}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeFilter}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {PLACEHOLDER_IMAGES.map((img, idx) => (
+            <motion.div
+              key={idx}
+              variants={scaleUpItem}
+              className={idx === 0 || idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""}
+            >
+              <GalleryCard imageSrc={img.src} alt={img.alt} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Load more */}
-      <div className="text-center mt-12">
+      <motion.div
+        className="text-center mt-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={viewportOnce}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
         <button className="btn-ghost px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-xl">
           Load More →
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 };
