@@ -19,7 +19,7 @@ export const tournaments = [
       { name: "Unicorn Brain Combat Open Chess Tournament", date: "18 April 2015" },
       { name: "Shri Laxminarayan Sharma Memorial Patrakaar Open Chess Tournament", date: "16 May 2015" },
       { name: "Saansad Trophy-II Open Chess Tournament", date: "22 August 2015" },
-      { name: "2-Day Workshop at Maharishi Vidya Mandir School", date: "2015", badge: "Workshop" },
+      { name: "2-Day Workshop at Maharishi Vidya Mandir School", date: "2015", badge: "Workshop", type : "workshop"},
     ],
   },
   {
@@ -76,7 +76,7 @@ export const tournaments = [
     year: "2024",
     events: [
       { name: "MP State Selection Chess Championship (U-11, 13, 17)", date: "2024" },
-      { name: "Train with a Grandmaster – Online GM Camp", date: "2024", badge: "GM Camp" },
+      { name: "Train with a Grandmaster – Online GM Camp", date: "2024", badge: "GM Camp" ,  type: "gm-camp",},
       { name: "1st Unicorn International FIDE Rated Open Chess Championship", date: "2024", badge: "FIDE Rated" },
       { name: "2nd DB City Sub Junior Rapid Chess Tournament", date: "Bhopal" },
       { name: "Tabbar House × Unicorn Open Rapid Chess Tournament", date: "Bhopal" },
@@ -105,6 +105,6 @@ export const tournaments = [
       { name: "4th Chaileela × Unicorn Blitz Chess Tournament", date: "LIG Square, Indore" },
       { name: "1st Chaileela × Unicorn Blitz Chess Tournament", date: "VIP Raipur" },
       { name: "1st Chaileela × Unicorn Blitz Chess Tournament", date: "Rishi Nagar, Ujjain" },
-    ],
+    ].reverse(),
   },
-];
+].reverse();

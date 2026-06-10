@@ -1,7 +1,7 @@
 export const pricingPlans = [
   {
     name: "Beginner Program",
-    price: "₹2,500",
+    price: "₹4,500",
     duration: "4–5 months",
     features: [
       "2–3 Live Classes per week",
@@ -16,7 +16,7 @@ export const pricingPlans = [
   },
   {
     name: "Intermediate Program",
-    price: "₹3,500",
+    price: "₹5,500",
     duration: "5–6 months",
     features: [
       "All Beginner Program inclusions",
@@ -30,7 +30,7 @@ export const pricingPlans = [
   },
   {
     name: "Advanced Program",
-    price: "₹4,500",
+    price: "₹6,500",
     duration: "Ongoing",
     features: [
       "All Intermediate Program inclusions",
