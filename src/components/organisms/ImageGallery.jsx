@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { galleryImages as GALLERY_IMAGES } from "../../lib/constants/galleryImages";
 import { motion, AnimatePresence } from "framer-motion";
 import GalleryCard from "../molecules/GalleryCard";
 import {
@@ -7,15 +8,17 @@ import {
   viewportOnce,
 } from "../../lib/animations";
 
-const PLACEHOLDER_IMAGES = Array.from({ length: 9 }, (_, i) => ({
-  src: `https://picsum.photos/seed/chess${i + 1}/600/450`,
-  alt: `Chess Academy Moment ${i + 1}`,
-}));
-
 const FILTERS = ["All", "Tournaments", "Coaching", "Events", "Achievements"];
 
 const ImageGallery = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+
+  const filteredImages =
+  activeFilter === "All"
+    ? GALLERY_IMAGES
+    : GALLERY_IMAGES.filter(
+        (image) => image.category === activeFilter
+      );
 
   return (
     <section className="section-wrapper bg-surface-alt">
@@ -51,7 +54,7 @@ const ImageGallery = () => {
           initial="hidden"
           animate="visible"
         >
-          {PLACEHOLDER_IMAGES.map((img, idx) => (
+          {filteredImages.map((img, idx) => (
             <motion.div
               key={idx}
               variants={scaleUpItem}
