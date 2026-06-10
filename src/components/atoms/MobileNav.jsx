@@ -57,7 +57,7 @@ const MobileNav = ({ showMenu, setShowMenu, mobileNavOpen, setMobileNavOpen }) =
                       {group.items.map((item, i) => (
                         <li key={i}>
                           <NavLink
-                            href="#"
+                            href={item.href}
                             onNavigate={closeAllMenus}
                             className="block text-sm text-ink-light hover:text-royal after:hidden"
                           >
