@@ -105,6 +105,8 @@ export const tournaments = [
       { name: "4th Chaileela × Unicorn Blitz Chess Tournament", date: "LIG Square, Indore" },
       { name: "1st Chaileela × Unicorn Blitz Chess Tournament", date: "VIP Raipur" },
       { name: "1st Chaileela × Unicorn Blitz Chess Tournament", date: "Rishi Nagar, Ujjain" },
+      { name: "1st Unicorn Open FIDE Rated Rapid Chess Tournament", date : "Anand Nagar, Bhopal", badge: "FIDE Rated All India"},
+      { name: "The Grandmaster Mindset – GM Chess Psychology & Performance CAMP", date: "29th & 30th June 2026", badge: "GM Camp" ,  type: "gm-camp"},
     ].reverse(),
   },
 ].reverse();
