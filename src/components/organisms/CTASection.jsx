@@ -8,6 +8,7 @@ import {
   fadeUpItem,
   viewportOnce,
 } from "../../lib/animations";
+import { openWhatsApp } from "../../lib/utils/whatsapp";
 
 const CTASection = () => {
   return (
@@ -61,12 +62,24 @@ const CTASection = () => {
             viewport={viewportOnce}
           >
             <motion.div variants={fadeUpItem}>
-              <Button variant="primary" size="large" className="w-full sm:w-auto justify-center">
+              <Button variant="primary" size="large" className="w-full sm:w-auto justify-center" 
+              onClick={() =>
+              openWhatsApp(
+                "Hey! I want to join the academy at Unicorn Chess Academy."
+              )
+            }
+              >
                 Join the Academy
               </Button>
             </motion.div>
             <motion.div variants={fadeUpItem}>
-              <Button variant="secondary" size="large" className="w-full sm:w-auto justify-center">
+              <Button variant="secondary" size="large" className="w-full sm:w-auto justify-center"
+              onClick={() =>
+                            openWhatsApp(
+                              "Hey! I want to book a free demo class at Unicorn Chess Academy."
+                            )
+                          }
+              >
                 Book Free Trial Class
               </Button>
             </motion.div>

@@ -8,6 +8,10 @@ export const features = [
     description:
       "Experience the joy of chess while building critical thinking skills.",
     buttonText: "Join",
+    action: {
+      type: "link",
+      url: "https://chat.whatsapp.com/Eq3e80MewtWER9ecUJ4Hj9",
+    },
     iconUrl: pawn,
   },
   {
@@ -15,6 +19,11 @@ export const features = [
     description:
       "Our classes cater to all skill levels, from beginners to advanced players.",
     buttonText: "Book",
+    action: {
+      type: "whatsapp",
+      message:
+        "Hey! I want to book my first class today and start my chess journey! 😁",
+    },
     iconUrl: rook,
   },
   {
@@ -22,6 +31,11 @@ export const features = [
     description:
       "Join us for thrilling competitions that foster growth and camaraderie.",
     buttonText: "Learn",
+    action: {
+      type: "whatsapp",
+      message:
+        "Hey! I want to join Unicorn Chess Academy and discover the exciting world of chess tournaments and events! 😁",
+    },
     iconUrl: Knight,
   },
 ];

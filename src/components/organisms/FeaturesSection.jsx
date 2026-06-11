@@ -48,6 +48,7 @@ const FeaturesSection = () => {
                 buttonText={feature.buttonText}
                 iconUrl={feature.iconUrl}
                 index={index}
+                action={feature.action}
               />
             </motion.div>
           ))}

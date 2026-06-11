@@ -1,8 +1,20 @@
-import React from "react";
+import React, { act } from "react";
+import { openWhatsApp  } from "../../lib/utils/whatsapp";
 
 const CHESS_ICONS = ["♟", "♜", "♞"];
 
-const FeatureCard = ({ title, description, buttonText, iconUrl, index = 0 }) => {
+const handleFeatureAction = (action)=>{
+  if (action.type === "link") {
+    window.open(action.url, "_blank");
+    return;
+  }
+
+  if (action.type === "whatsapp") {
+    openWhatsApp(action.message);
+  }
+}
+
+const FeatureCard = ({ title, description, buttonText, iconUrl, index = 0, action }) => {
   return (
     <div className="group premium-card p-7 flex flex-col gap-4">
       {/* top line reveal on hover */}
@@ -23,7 +35,9 @@ const FeatureCard = ({ title, description, buttonText, iconUrl, index = 0 }) => 
       <p className="body-text text-sm flex-1">{description}</p>
 
       {/* Link */}
-      <button className="text-royal text-sm font-semibold tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-200 w-fit">
+      <button 
+      onClick={()=> handleFeatureAction(action)}
+      className="text-royal text-sm font-semibold tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-200 w-fit">
         {buttonText} <span>→</span>
       </button>
     </div>

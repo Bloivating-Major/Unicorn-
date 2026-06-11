@@ -7,6 +7,7 @@ import {
   slideInRight,
   viewportOnce,
 } from "../../lib/animations";
+import { openWhatsApp } from "../../lib/utils/whatsapp";
 
 const AboutHero = () => {
   return (
@@ -39,8 +40,20 @@ const AboutHero = () => {
           </motion.p>
 
           <motion.div variants={heroItem} className="flex flex-wrap justify-center lg:justify-start gap-4">
-            <Button variant="primary" size="large">Join the Academy</Button>
-            <Button variant="secondary" size="large">Learn More</Button>
+            <Button variant="primary" size="large"
+              onClick={() =>
+                openWhatsApp(
+                  "Hey! I want to join the academy at Unicorn Chess Academy."
+                )
+              }
+            >Join the Academy</Button>
+            <Button variant="secondary" size="large"
+              onClick={() =>
+                openWhatsApp(
+                  "Hey! I want to learn more about the academy at Unicorn Chess Academy."
+                )
+              }
+            >Learn More</Button>
           </motion.div>
         </motion.div>
 

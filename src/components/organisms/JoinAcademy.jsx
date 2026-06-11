@@ -35,8 +35,20 @@ const JoinAcademyCTA = () => {
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-2">
-            <Button variant="primary" size="large">Join Now</Button>
-            <Button variant="secondary" size="large">Learn More</Button>
+            <Button variant="primary" size="large"
+              onClick={() =>
+                openWhatsApp(
+                  "Hey! I want to join the academy at Unicorn Chess Academy."
+                )
+              }
+            >Join Now</Button>
+            <Button variant="secondary" size="large"
+              onClick={() =>
+                openWhatsApp(
+                  "Hey! I want to learn more about the academy at Unicorn Chess Academy."
+                )
+              }
+            >Learn More</Button>
           </div>
         </motion.div>
 

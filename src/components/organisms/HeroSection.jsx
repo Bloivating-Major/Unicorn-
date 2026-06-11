@@ -8,16 +8,17 @@ import {
   statItem,
   viewportOnce,
 } from "../../lib/animations";
+import { openWhatsApp } from "../../lib/utils/whatsapp";
 
 /* ── Mini chess board visual ── */
 const PIECES = {
-  "00":"♜","10":"♞","20":"♝","30":"♛","40":"♚","50":"♝","60":"♞","70":"♜",
-  "01":"♟","11":"♟","21":"♟","31":"♟","41":"♟","51":"♟","61":"♟","71":"♟",
-  "06":"♙","16":"♙","26":"♙","36":"♙","46":"♙","56":"♙","66":"♙","76":"♙",
-  "07":"♖","17":"♘","27":"♗","37":"♕","47":"♔","57":"♗","67":"♘","77":"♖",
+  "00": "♜", "10": "♞", "20": "♝", "30": "♛", "40": "♚", "50": "♝", "60": "♞", "70": "♜",
+  "01": "♟", "11": "♟", "21": "♟", "31": "♟", "41": "♟", "51": "♟", "61": "♟", "71": "♟",
+  "06": "♙", "16": "♙", "26": "♙", "36": "♙", "46": "♙", "56": "♙", "66": "♙", "76": "♙",
+  "07": "♖", "17": "♘", "27": "♗", "37": "♕", "47": "♔", "57": "♗", "67": "♘", "77": "♖",
 };
-const HIGHLIGHTS = new Set(["34","43","44","35"]);
-const DOTS       = new Set(["23","53","25","55"]);
+const HIGHLIGHTS = new Set(["34", "43", "44", "35"]);
+const DOTS = new Set(["23", "53", "25", "55"]);
 
 const ChessBoard = () => (
   <div
@@ -99,8 +100,16 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div variants={heroItem} className="flex flex-wrap justify-center lg:justify-start gap-4">
-            <Button variant="primary" size="large">Book Free Demo Class</Button>
-            <Button variant="secondary" size="large">Explore Programs</Button>
+            <Button variant="primary" size="large" onClick={() =>
+              openWhatsApp(
+                "Hey! I want to book a free demo class at Unicorn Chess Academy."
+              )
+            }>Book Free Demo Class</Button>
+            <Button variant="secondary" size="large"
+              onClick={()=>
+                openWhatsApp("Hey! I want to know more about your programs.")
+              }
+            >Explore Programs</Button>
           </motion.div>
 
           {/* Stats row */}
@@ -110,8 +119,8 @@ const HeroSection = () => {
           >
             {[
               { num: "500+", label: "Students Trained" },
-              { num: "12+",  label: "Years of Excellence" },
-              { num: "50+",  label: "Tournament Wins" },
+              { num: "12+", label: "Years of Excellence" },
+              { num: "50+", label: "Tournament Wins" },
             ].map((s) => (
               <motion.div key={s.label} variants={statItem} className="flex flex-col items-center lg:items-start">
                 <span className="font-playfair text-2xl font-bold text-royal leading-none">
