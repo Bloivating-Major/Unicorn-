@@ -7,7 +7,6 @@ import HomePage from "./pages/HomePage";
 import Footer from "./components/organisms/Footer";
 import Contact from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
-import CarrerPage from "./pages/CarrerPage";
 import TournamentsPage from "./pages/TournamentsPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import { pageVariants } from "./lib/animations";

@@ -9,6 +9,8 @@ import {
 } from "../../lib/animations";
 import ProgramCard from "../molecules/ProgramCard";
 import { programs } from "../../lib/constants/programs";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const specialPrograms = [
   {
@@ -29,8 +31,23 @@ const whyItWorks = [
 ];
 
 const ProgramsOverview = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  }, [location]);
+
   return (
-    <section className="bg-white section-wrapper">
+    <section id="programs-overview" className="bg-white section-wrapper">
       {/* Header */}
       <motion.div
         className="text-center max-w-2xl mx-auto mb-16"

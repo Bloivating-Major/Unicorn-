@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
 import {
   heroContainer,
@@ -64,6 +65,12 @@ const ChessBoard = () => (
 );
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleExplorePrograms = () => {
+    navigate("/about#programs-overview");
+  };
+
   return (
     <section className="relative bg-white overflow-hidden">
       {/* subtle board pattern */}
@@ -106,9 +113,7 @@ const HeroSection = () => {
               )
             }>Book Free Demo Class</Button>
             <Button variant="secondary" size="large"
-              onClick={()=>
-                openWhatsApp("Hey! I want to know more about your programs.")
-              }
+              onClick={handleExplorePrograms}
             >Explore Programs</Button>
           </motion.div>
 

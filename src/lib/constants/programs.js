@@ -4,8 +4,8 @@ export const programs = [
         number: "01",
         level: "Beginner Program",
         subtitle: "For absolute beginners (Age 5+)",
-        duration: "3–4 months",
-        mode: "Online / Offline",
+        duration: "4 months",
+        mode: "Online / Offline 2 Classes per week",
         outcome: "Students will be able to play complete games with understanding and confidence.",
         ctaLabel: "Book Free Demo Class",
         whatsappMessage:
@@ -26,8 +26,8 @@ export const programs = [
         number: "02",
         level: "Intermediate Program",
         subtitle: "For students who know basics and want to improve",
-        duration: "5–6 months",
-        mode: "Online / Offline",
+        duration: "5 months",
+        mode: "Online / Offline 2 Classes per week",
         outcome: "Students start thinking strategically and performing in tournaments.",
         ctaLabel: "Join Intermediate Batch",
         whatsappMessage:
