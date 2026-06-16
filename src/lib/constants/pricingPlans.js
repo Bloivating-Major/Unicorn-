@@ -3,13 +3,13 @@ export const pricingPlans = [
     id: "beginner",
     name: "Beginner Program",
     price: "₹4,500",
-    duration: "4–5 months",
+    duration: "4 months",
     featured: false,
     ctaText: "Book Free Demo",
     whatsappMessage:
       "Hi Unicorn Chess Academy 👋\n\nI am interested in the Beginner Program and would like to book a free demo class.\n\nCould you please share the details and available timings?\n\nThank you!",
     features: [
-      "2–3 Live Classes per week",
+      "2 Live Classes per week",
       "Membership fee: ₹1,200/year",
       "Kit fee: ₹1,500 (one-time)",
       "Piece movement & basic rules",
@@ -23,7 +23,7 @@ export const pricingPlans = [
     id: "intermediate",
     name: "Intermediate Program",
     price: "₹5,500",
-    duration: "5–6 months",
+    duration: "5 months",
     featured: true,
     ctaText: "Join Intermediate",
     whatsappMessage:
